@@ -5,6 +5,7 @@ const resources = {
       "th-device": "Device",
       "th-cores": "Cores/Threads",
       "th-ram": "RAM",
+      "th-rom": "ROM",
       "th-os": "OS (Orig / New)",
       "th-power-orig": "Orig OS Power (Idle/Max)",
       "th-power-new": "New OS Power (Idle/Max)",
@@ -18,6 +19,7 @@ const resources = {
       "th-device": "Устройство",
       "th-cores": "Ядра/Потоки",
       "th-ram": "ОЗУ",
+      "th-rom": "ПЗУ",
       "th-os": "ОС (Завод / Новая)",
       "th-power-orig": "Ориг. ОС Ватт (Простой/Макс)",
       "th-power-new": "Новая ОС Ватт (Простой/Макс)",
@@ -68,11 +70,13 @@ function renderTable() {
         const newPowerIdle = Math.max(0, d.powerW - 3);
         const newPowerMax = Math.max(0, d.powerMax - 3);
         const ramString = d.ram ? `${d.ram}GB ${d.ramtype}` : '-';
+        const romString = d.ram ? `${d.rom}GB ${d.romtype}` : '-';
 
         tr.innerHTML = `
             <td><b>${d.name}</b><br><small>${d.cpu}</small></td>
             <td><b>${d.cores}</b></td>
             <td>${ramString}</td>
+            <td>${romString}</td>
             <td>${d.os} ➔ <b>${d.newos}</b></td>
             <td>${d.powerW}W / ${d.powerMax}W</td>
             <td><b>${newPowerIdle}W / ${newPowerMax}W</b></td>
@@ -108,6 +112,7 @@ function updateUI() {
     document.getElementById('th-device').innerText = i18next.t('th-device');
     document.getElementById('th-cores').innerText = i18next.t('th-cores');
     document.getElementById('th-ram').innerText = i18next.t('th-ram');
+    document.getElementById('th-rom').innerText = i18next.t('th-rom');
     document.getElementById('th-os').innerText = i18next.t('th-os');
     document.getElementById('th-power-orig').innerText = i18next.t('th-power-orig');
     document.getElementById('th-power-new').innerText = i18next.t('th-power-new');
