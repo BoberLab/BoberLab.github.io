@@ -1,20 +1,164 @@
 [
   {
-    "id": "oneplus8pro",
-    "name": "OnePlus 8 Pro",
-    "cpu": "Snapdragon 865",
-    "powerW": 10,
-    "score": 12548,
-    "os": "Android",
-    "newos": "Postmarket"
+    "id": "samsung_s5", "type": "smartphone",
+    "name": "Samsung S5", "cpu": "Snapdragon 801", "cores": "4/4",
+    "ram": 2, "ramtype": "DDR3", "rom": "16", "romtype": "eMMC",
+    "powerW": 6, "powerAvg": 6, "powerMax": 8,
+    "score": 42000, "benchmark": 2620, "sysbench": 1500,
+    "os": "Android", "newos": "Linux Deploy",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Samsung+S5"
   },
   {
-    "id": "n100",
-    "name": "Intel N100 Mini PC",
-    "cpu": "Intel N100",
-    "powerW": 6,
-    "score": 11207,    
-    "os": "Windows 11 Home",
-    "newos": "Debian"
+    "id": "samsung_s8", "type": "smartphone",
+    "name": "Samsung S8", "cpu": "Exynos 8895", "cores": "8/8",
+    "ram": 4, "ramtype": "DDR4", "rom": "64", "romtype": "UFS 2.0",
+    "powerW": 5, "powerAvg": 6, "powerMax": 10,
+    "score": 220000, "benchmark": 6200, "sysbench": 3000,
+    "os": "Android", "newos": "Ubuntu Touch",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Samsung+S8"
+  },
+  {
+    "id": "samsung_note9", "type": "smartphone",
+    "name": "Samsung Note 9", "cpu": "Exynos 9810", "cores": "8/8",
+    "ram": 8, "ramtype": "DDR4", "rom": "512", "romtype": "UFS 2.1",
+    "powerW": 5, "powerAvg": 7, "powerMax": 15,
+    "score": 322000, "benchmark": 8570, "sysbench": 4500,
+    "os": "Android", "newos": "Linux",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Samsung+Note+9"
+  },
+  {
+    "id": "xperia_m2", "type": "smartphone",
+    "name": "Xperia M2 LTE (D2303)", "cpu": "Snapdragon 400", "cores": "4/4",
+    "ram": 1, "ramtype": "", "rom": "8", "romtype": "",
+    "powerW": 3, "powerAvg": 3, "powerMax": 5,
+    "score": 0, "benchmark": 1156, "sysbench": 800,
+    "os": "Android", "newos": "Debian",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Xperia+M2+D2303"
+  },
+  {
+    "id": "oneplus8pro", "type": "smartphone",
+    "name": "OnePlus 8 Pro", "cpu": "Snapdragon 865", "cores": "8/8",
+    "ram": 8, "ramtype": "DDR5", "rom": "128", "romtype": "UFS 3.0",
+    "powerW": 10, "powerAvg": 12, "powerMax": 30,
+    "score": 745000, "benchmark": 12548, "sysbench": 6000,
+    "os": "Android 11", "newos": "PostmarketOS",
+    "ebay": "https://www.ebay.pl/sch/i.html?_nkw=OnePlus+8+Pro"
+  },
+  {
+    "id": "redmi_note9_pro", "type": "smartphone",
+    "name": "Redmi Note 9 Pro", "cpu": "Snapdragon 720G", "cores": "8/8",
+    "ram": 6, "ramtype": "DDR4", "rom": "128", "romtype": "UFS 2.1",
+    "powerW": 5, "powerAvg": 7, "powerMax": 18,
+    "score": 324000, "benchmark": 7000, "sysbench": 4000,
+    "os": "Android", "newos": "Ubuntu",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Redmi+Note+9+Pro"
+  },
+  {
+    "id": "bananapi_r3", "type": "minipc",
+    "name": "Banana Pi R3", "cpu": "Mediatek 7986A", "cores": "4/4",
+    "ram": 2, "ramtype": "", "rom": "8", "romtype": "eMMC",
+    "powerW": 8, "powerAvg": 9, "powerMax": 12,
+    "score": 0, "benchmark": 2340, "sysbench": 2000,
+    "os": "OpenWRT", "newos": "OpenWRT",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Banana+Pi+R3"
+  },
+  {
+    "id": "amlogic_s912", "type": "tvbox",
+    "name": "Mecool M8S Pro", "cpu": "Amlogic S912", "cores": "8/8",
+    "ram": 3, "ramtype": "", "rom": "16", "romtype": "eMMC",
+    "powerW": 5, "powerAvg": 6, "powerMax": 10,
+    "score": 0, "benchmark": 2458, "sysbench": 1800,
+    "os": "Android", "newos": "Armbian",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Mecool+M8S+Pro"
+  },
+  {
+    "id": "amlogic_s905x3", "type": "tvbox",
+    "name": "Amlogic S905x3 TV Box", "cpu": "Amlogic S905x3", "cores": "4/4",
+    "ram": 4, "ramtype": "", "rom": "32", "romtype": "eMMC",
+    "powerW": 5, "powerAvg": 6, "powerMax": 10,
+    "score": 0, "benchmark": 2128, "sysbench": 1600,
+    "os": "Android 9", "newos": "Armbian",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Amlogic+S905X3"
+  },
+  {
+    "id": "intel_z8330", "type": "minipc",
+    "name": "Intel STK1AW32SC", "cpu": "Intel x5 Z8330", "cores": "4/4",
+    "ram": 2, "ramtype": "DDR3", "rom": "32", "romtype": "eMMC",
+    "powerW": 2, "powerAvg": 4, "powerMax": 6,
+    "score": 0, "benchmark": 1300, "sysbench": 1200,
+    "os": "Windows", "newos": "Debian",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Intel+Compute+Stick+Z8330"
+  },
+  {
+    "id": "lenovo_m93p_4590t", "type": "minipc",
+    "name": "Lenovo M93p", "cpu": "i5-4590T", "cores": "4/4",
+    "ram": 4, "ramtype": "DDR3", "rom": "", "romtype": "",
+    "powerW": 35, "powerAvg": 40, "powerMax": 65,
+    "score": 0, "benchmark": 12000, "sysbench": 5000,
+    "os": "Windows", "newos": "Proxmox",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Lenovo+M93p+i5-4590T"
+  },
+  {
+    "id": "lenovo_m93p_4570t", "type": "minipc",
+    "name": "Lenovo M93p", "cpu": "i5-4570T", "cores": "2/4",
+    "ram": 4, "ramtype": "DDR3", "rom": "", "romtype": "",
+    "powerW": 35, "powerAvg": 40, "powerMax": 65,
+    "score": 0, "benchmark": 10000, "sysbench": 3500,
+    "os": "Windows", "newos": "Proxmox",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Lenovo+M93p+i5-4570T"
+  },
+  {
+    "id": "lenovo_m83", "type": "minipc",
+    "name": "Lenovo M83", "cpu": "i3-4150T", "cores": "2/4",
+    "ram": 4, "ramtype": "DDR3", "rom": "", "romtype": "",
+    "powerW": 35, "powerAvg": 40, "powerMax": 55,
+    "score": 0, "benchmark": 9000, "sysbench": 3200,
+    "os": "Windows", "newos": "Ubuntu Server",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Lenovo+M83+i3-4150T"
+  },
+  {
+    "id": "dell_3050", "type": "minipc",
+    "name": "Dell 3050", "cpu": "i3-7100T", "cores": "2/4",
+    "ram": 4, "ramtype": "DDR4", "rom": "", "romtype": "",
+    "powerW": 35, "powerAvg": 40, "powerMax": 55,
+    "score": 0, "benchmark": 12000, "sysbench": 4200,
+    "os": "Windows", "newos": "Proxmox",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Dell+3050+Micro+i3"
+  },
+  {
+    "id": "epixel_14", "type": "minipc",
+    "name": "Epixel 14", "cpu": "N4020C", "cores": "2/2",
+    "ram": 4, "ramtype": "DDR3", "rom": "128", "romtype": "SSD",
+    "powerW": 6, "powerAvg": 8, "powerMax": 15,
+    "score": 0, "benchmark": 4427, "sysbench": 1500,
+    "os": "Windows", "newos": "Linux",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=N4020C+Mini+PC"
+  },
+  {
+    "id": "lenovo_tp00081b", "type": "minipc",
+    "name": "Lenovo TP00081B", "cpu": "3865U", "cores": "2/2",
+    "ram": 4, "ramtype": "DDR3", "rom": "128", "romtype": "SSD",
+    "powerW": 15, "powerAvg": 20, "powerMax": 35,
+    "score": 0, "benchmark": 5425, "sysbench": 1800,
+    "os": "Windows", "newos": "Linux",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Lenovo+3865U"
+  },
+  {
+    "id": "intel_n100", "type": "minipc",
+    "name": "Intel N100 Mini PC", "cpu": "Intel N100", "cores": "4/4",
+    "ram": 8, "ramtype": "DDR5", "rom": "256", "romtype": "NVMe",
+    "powerW": 6, "powerAvg": 10, "powerMax": 20,
+    "score": 0, "benchmark": 11207, "sysbench": 5500,
+    "os": "Windows 11 Home", "newos": "Debian / Proxmox",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Intel+N100+Mini+PC"
+  },
+  {
+    "id": "lenovo_tab", "type": "tablet",
+    "name": "Lenovo TAB Server", "cpu": "Intel 6100U", "cores": "2/4",
+    "ram": 4, "ramtype": "DDR3", "rom": "128", "romtype": "SSD",
+    "powerW": 10, "powerAvg": 15, "powerMax": 25,
+    "score": 0, "benchmark": 8000, "sysbench": 2500,
+    "os": "Windows", "newos": "Linux",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Lenovo+6100U"
   }
 ]

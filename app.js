@@ -1,79 +1,118 @@
-// 1. Словари для i18next
 const resources = {
   en: {
     translation: {
-      "title": "My Home Lab Tests",
-      "device": "Device Name",
-      "cpu": "Processor",
-      "power": "Power (Watts)",
-      "score": "Benchmark Score"
+      "title": "BoberLab: Device Benchmark Dashboard",
+      "th-device": "Device",
+      "th-cores": "Cores/Threads",
+      "th-ram": "RAM",
+      "th-os": "OS (Orig / New)",
+      "th-power-orig": "Orig OS Power (Idle/Max)",
+      "th-power-new": "New OS Power (Idle/Max)",
+      "th-score": "Cinebench Score",
+      "th-sysbench": "Sysbench"
     }
   },
   ru: {
     translation: {
-      "title": "Тесты домашней лаборатории",
-      "device": "Устройство",
-      "cpu": "Процессор",
-      "power": "Потребление (Ватт)",
-      "score": "Баллы (Benchmark)"
+      "title": "BoberLab: Сравнение устройств",
+      "th-device": "Устройство",
+      "th-cores": "Ядра/Потоки",
+      "th-ram": "ОЗУ",
+      "th-os": "ОС (Завод / Новая)",
+      "th-power-orig": "Ориг. ОС Ватт (Простой/Макс)",
+      "th-power-new": "Новая ОС Ватт (Простой/Макс)",
+      "th-score": "Cinebench",
+      "th-sysbench": "Sysbench"
     }
   }
 };
 
 let devicesData = [];
+let activeFilters = ['smartphone', 'minipc', 'tvbox', 'tablet'];
+let currentSort = { column: 'benchmark', direction: 'desc' };
 
-// 2. Инициализация i18next
-i18next.init({
-  lng: 'ru', // Язык по умолчанию
-  fallbackLng: 'en',
-  resources
-}, function(err, t) {
-  // Вызывается после загрузки переводов
-  updateUI();
-  loadDevices();
+i18next.init({ lng: 'ru', resources }, (err, t) => {
+    updateUI();
+    loadDevices();
 });
 
-// 3. Функция перевода статических элементов интерфейса
-function updateUI() {
-  document.getElementById('main-title').innerText = i18next.t('title');
-  document.getElementById('th-device').innerText = i18next.t('device');
-  document.getElementById('th-cpu').innerText = i18next.t('cpu');
-  document.getElementById('th-power').innerText = i18next.t('power');
-  document.getElementById('th-score').innerText = i18next.t('score');
-}
-
-// 4. Загрузка JSON и рендер таблицы
 async function loadDevices() {
-  try {
     const response = await fetch('devices.json');
     devicesData = await response.json();
     renderTable();
-  } catch (error) {
-    console.error("Ошибка загрузки данных:", error);
-  }
 }
 
 function renderTable() {
-  const tbody = document.getElementById('table-body');
-  tbody.innerHTML = ''; // Очищаем таблицу
+    const tbody = document.getElementById('table-body');
+    tbody.innerHTML = '';
 
-  devicesData.forEach(device => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td>${device.name}</td>
-      <td>${device.cpu}</td>
-      <td>${device.powerW} W</td>
-      <td>${device.score}</td>
-    `;
-    tbody.appendChild(tr);
-  });
+    let filtered = devicesData.filter(d => activeFilters.includes(d.type));
+    
+    // Продвинутая сортировка, умеет сортировать ядра "8/16" как число 8
+    filtered.sort((a, b) => {
+        let valA = a[currentSort.column];
+        let valB = b[currentSort.column];
+
+        if (currentSort.column === 'cores') {
+            valA = parseInt(valA.split('/')[0]) || 0;
+            valB = parseInt(valB.split('/')[0]) || 0;
+        }
+
+        return currentSort.direction === 'asc' ? (valA > valB ? 1 : -1) : (valA < valB ? 1 : -1);
+    });
+
+    filtered.forEach(d => {
+        const tr = document.createElement('tr');
+        tr.className = `row-${d.type}`;
+        
+        const newPowerIdle = Math.max(0, d.powerW - 3);
+        const newPowerMax = Math.max(0, d.powerMax - 3);
+        const ramString = d.ram ? `${d.ram}GB ${d.ramtype}` : '-';
+
+        tr.innerHTML = `
+            <td><b>${d.name}</b><br><small>${d.cpu}</small></td>
+            <td><b>${d.cores}</b></td>
+            <td>${ramString}</td>
+            <td>${d.os} ➔ <b>${d.newos}</b></td>
+            <td>${d.powerW}W / ${d.powerMax}W</td>
+            <td><b>${newPowerIdle}W / ${newPowerMax}W</b></td>
+            <td>${d.benchmark}</td>
+            <td><b>${d.sysbench || '-'}</b></td>
+            <td><a class="buy-btn" href="${d.ebay}" target="_blank">↗</a></td>
+        `;
+        tbody.appendChild(tr);
+    });
 }
 
-// 5. Функция смены языка (вызывается по клику на кнопки)
-function changeLang(lang) {
-  i18next.changeLanguage(lang, () => {
-    updateUI();
-    // Если бы у нас были переводы самих данных (например, описания устройств), 
-    // мы бы здесь снова вызвали renderTable()
-  });
+function sortTable(col) {
+    if (currentSort.column === col) {
+        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+    } else {
+        currentSort.column = col;
+        currentSort.direction = 'desc';
+    }
+    renderTable();
 }
+
+function toggleFilter(type) {
+    if (activeFilters.includes(type)) {
+        activeFilters = activeFilters.filter(t => t !== type);
+    } else {
+        activeFilters.push(type);
+    }
+    renderTable();
+}
+
+function updateUI() {
+    document.getElementById('main-title').innerText = i18next.t('title');
+    document.getElementById('th-device').innerText = i18next.t('th-device');
+    document.getElementById('th-cores').innerText = i18next.t('th-cores');
+    document.getElementById('th-ram').innerText = i18next.t('th-ram');
+    document.getElementById('th-os').innerText = i18next.t('th-os');
+    document.getElementById('th-power-orig').innerText = i18next.t('th-power-orig');
+    document.getElementById('th-power-new').innerText = i18next.t('th-power-new');
+    document.getElementById('th-score').innerText = i18next.t('th-score');
+    document.getElementById('th-sysbench').innerText = i18next.t('th-sysbench');
+}
+
+function changeLang(l) { i18next.changeLanguage(l, updateUI); }
