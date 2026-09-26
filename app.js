@@ -1,53 +1,41 @@
-const resources = {
-  en: {
-    translation: {
-      "title": "BoberLab: Device Benchmark Dashboard",
-      "th-device": "Device",
-      "th-cores": "Cores/Threads",
-      "th-tdp": "CPU TDP",
-      "th-nm": "Process (nm)",
-      "th-ram": "RAM",
-      "th-rom": "ROM",
-      "th-os": "OS (Orig / New)",
-      "th-power-orig": "Orig OS Power (Idle/Max)",
-      "th-power-new": "New OS Power (Idle/Max)",
-      "th-antu": "Antutu",
-      "th-score": "Cinebench Score",
-      "th-sysbench": "Sysbench"
-    }
-  },
-  ru: {
-    translation: {
-      "title": "BoberLab: Сравнение устройств",
-      "th-device": "Устройство",
-      "th-cores": "Ядра/Потоки",
-      "th-tdp": "TDP (Вт)",
-      "th-nm": "Техпроцесс (нм)",
-      "th-ram": "ОЗУ",
-      "th-rom": "ПЗУ",
-      "th-os": "ОС (Завод / Новая)",
-      "th-power-orig": "Ориг. ОС Ватт (Простой/Макс)",
-      "th-power-new": "Новая ОС Ватт (Простой/Макс)",
-      "th-antu": "Antutu",
-      "th-score": "Cinebench R15 Multi",
-      "th-sysbench": "Sysbench"
-    }
-  }
-};
-
 let devicesData = [];
-let activeFilters = ['smartphone', 'minipc', 'tvbox', 'tablet'];
+let activeFilters = [];
+let allTypes = [];
 let currentSort = { column: 'benchmark', direction: 'desc' };
 
-i18next.init({ lng: 'ru', resources }, (err, t) => {
-    updateUI();
+initI18n(() => {
     loadDevices();
 });
+document.addEventListener('langchange', updateStaticUI);
 
 async function loadDevices() {
     const response = await fetch('devices.json');
     devicesData = await response.json();
+    // Build the type-filter list dynamically from whatever types are present
+    // in devices.json, so adding e.g. "laptop" devices later needs no HTML edits.
+    allTypes = [...new Set(devicesData.map(d => d.type))];
+    activeFilters = [...allTypes];
+    buildFilters();
+    updateStaticUI();
     renderTable();
+}
+
+function buildFilters() {
+    const wrap = document.getElementById('filters');
+    wrap.innerHTML = '';
+    allTypes.forEach(type => {
+        const label = document.createElement('label');
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = true;
+        checkbox.onchange = () => toggleFilter(type);
+        const span = document.createElement('span');
+        span.dataset.typeLabel = type;
+        label.appendChild(checkbox);
+        label.appendChild(document.createTextNode(' '));
+        label.appendChild(span);
+        wrap.appendChild(label);
+    });
 }
 
 function renderTable() {
@@ -55,8 +43,8 @@ function renderTable() {
     tbody.innerHTML = '';
 
     let filtered = devicesData.filter(d => activeFilters.includes(d.type));
-    
-    // Продвинутая сортировка, умеет сортировать ядра "8/16" как число 8
+
+    // Sorts "8/16" cores as the numeric core count.
     filtered.sort((a, b) => {
         let valA = a[currentSort.column];
         let valB = b[currentSort.column];
@@ -72,14 +60,14 @@ function renderTable() {
     filtered.forEach(d => {
         const tr = document.createElement('tr');
         tr.className = `row-${d.type}`;
-        
+
         const newPowerIdle = Math.max(0, d.powerW - 3);
         const newPowerMax = Math.max(0, d.powerMax - 3);
         const ramString = d.ram ? `${d.ram}GB ${d.ramtype}` : '-';
         const romString = d.rom ? `${d.rom}GB ${d.romtype}` : '-';
 
         tr.innerHTML = `
-            <td><b>${d.name}</b><br><small>${d.cpu}</small></td>
+            <td><a class="device-link" href="device.html?id=${encodeURIComponent(d.id)}">${d.name}</a><br><small>${d.cpu}</small></td>
             <td><b>${d.cores}</b></td>
             <td>${d['core-tdp'] ? d['core-tdp'] + 'W' : '-'}</td>
             <td>${d.nm ? d.nm + 'nm' : '-'}</td>
@@ -91,7 +79,7 @@ function renderTable() {
             <td><b>${d.antu || '-'}</b></td>
             <td>${d.benchmark}</td>
             <td><b>${d.sysbench || '-'}</b></td>
-            <td><a class="buy-btn" href="${d.ebay}" target="_blank">↗</a></td>
+            <td><a class="buy-btn" href="${d.ebay}" target="_blank" rel="noopener">↗</a></td>
         `;
         tbody.appendChild(tr);
     });
@@ -116,8 +104,12 @@ function toggleFilter(type) {
     renderTable();
 }
 
-function updateUI() {
-    document.getElementById('main-title').innerText = i18next.t('title');
+function updateStaticUI() {
+    document.getElementById('site-title').innerText = i18next.t('site-title');
+    document.getElementById('main-title').innerText = i18next.t('nav-all');
+    document.getElementById('intro-title').innerText = i18next.t('intro-title');
+    document.getElementById('intro-text').innerText = i18next.t('intro-text');
+    document.getElementById('filters-label').innerText = i18next.t('filters-label');
     document.getElementById('th-device').innerText = i18next.t('th-device');
     document.getElementById('th-cores').innerText = i18next.t('th-cores');
     document.getElementById('th-tdp').innerText = i18next.t('th-tdp');
@@ -130,24 +122,10 @@ function updateUI() {
     document.getElementById('th-antu').innerText = i18next.t('th-antu');
     document.getElementById('th-score').innerText = i18next.t('th-score');
     document.getElementById('th-sysbench').innerText = i18next.t('th-sysbench');
+    document.getElementById('th-ebay').innerText = i18next.t('th-ebay');
+    document.getElementById('footer-project').innerText = i18next.t('footer-project');
+    document.getElementById('footer-disclaimer').innerText = i18next.t('footer-disclaimer');
+    document.querySelectorAll('#filters span[data-type-label]').forEach(span => {
+        span.innerText = typeLabel(span.dataset.typeLabel);
+    });
 }
-
-function changeLang(l) { i18next.changeLanguage(l, updateUI); }
-
-// 1. Get the browser's language (e.g., "en-US", "ru-RU")
-const browserLang = navigator.language || navigator.userLanguage;
-
-// 2. Extract just the 2-letter code (e.g., "en", "ru")
-const shortLang = browserLang.split('-')[0];
-
-// 3. Define the languages your app actually supports
-const supportedLangs = ['en', 'ru'];
-
-// 4. Check if the browser language is supported; if not, fallback to 'en'
-const defaultLang = supportedLangs.includes(shortLang) ? shortLang : 'en';
-
-// 5. Initialize i18next with the detected language
-i18next.init({ lng: defaultLang, resources }, (err, t) => {
-    updateUI();
-    loadDevices();
-});

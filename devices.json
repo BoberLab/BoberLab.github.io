@@ -1,164 +1,1700 @@
 [
   {
-    "id": "samsung_s5", "type": "smartphone",
-    "name": "Samsung S5", "cpu": "Snapdragon 801", "nm": 2, "cores": "4/4",
-   "core-tdp": 5,  "ram": 2, "ramtype": "DDR3", "rom": "16", "romtype": "eMMC",
-    "powerW": 6, "powerAvg": 6, "powerMax": 8,
-    "score": 42000, "antu": 42670, "benchmark": 160, "sysbench": 1500,
-    "os": "Android", "newos": "Linux Deploy",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Samsung+S5"
+    "id": "samsung_s5",
+    "type": "smartphone",
+    "name": "Samsung S5",
+    "cpu": "Snapdragon 801",
+    "nm": 2,
+    "cores": "4/4",
+    "core-tdp": 5,
+    "ram": 2,
+    "ramtype": "DDR3",
+    "rom": "16",
+    "romtype": "eMMC",
+    "powerW": 6,
+    "powerAvg": 6,
+    "powerMax": 8,
+    "score": 42000,
+    "antu": 42670,
+    "benchmark": 160,
+    "sysbench": 1500,
+    "os": "Android",
+    "newos": "Linux Deploy",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Samsung+S5",
+    "ratings": {
+      "os": 5,
+      "wifi": 7,
+      "battery": 7,
+      "usb": 4,
+      "price": 5,
+      "performance": 1.6
+    },
+    "description": {
+      "en": "The Samsung S5 (Snapdragon 801) is a retired phone we repurpose into a low-power home server, running Linux Deploy instead of its original Android.",
+      "ru": "Samsung S5 (Snapdragon 801) — списанный телефон, который мы превращаем в экономичный домашний сервер, устанавливая Linux Deploy вместо родной Android.",
+      "pl": "Samsung S5 (Snapdragon 801) to wysłużony telefon, który zamieniamy w oszczędny serwer domowy, instalując Linux Deploy zamiast oryginalnego Android."
+    },
+    "pros": {
+      "en": [
+        "Very low power draw — cheap to keep running 24/7"
+      ],
+      "ru": [
+        "Очень низкое энергопотребление — дёшево держать включённым 24/7"
+      ],
+      "pl": [
+        "Bardzo niski pobór mocy — tanio w pracy 24/7"
+      ]
+    },
+    "cons": {
+      "en": [
+        "Only 2 GB RAM limits how many services can run at once",
+        "Very little onboard storage, an external/USB drive is basically required",
+        "Linux runs in a chroot on top of Android, not a full native install"
+      ],
+      "ru": [
+        "Всего 2 ГБ ОЗУ — ограничивает число одновременно работающих сервисов",
+        "Очень мало встроенной памяти, почти обязательно потребуется внешний/USB-накопитель",
+        "Linux работает в chroot поверх Android, а не как полноценная установка"
+      ],
+      "pl": [
+        "Tylko 2 GB RAM ogranicza liczbę usług działających naraz",
+        "Bardzo mało pamięci wbudowanej, praktycznie wymagany jest dysk zewnętrzny/USB",
+        "Linux działa w chroot na Androidzie, a nie jako pełna natywna instalacja"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up your data, then unlock the bootloader in developer options",
+          "Root the device (Magisk) or flash a custom recovery (TWRP) for your exact model",
+          "Install a Linux layer — Linux Deploy, UserLAnd, or a native port such as postmarketOS/Ubuntu Touch if one exists for this device",
+          "Connect over SSH, set a static IP or reserve one on your router",
+          "Install Docker/Portainer (or your preferred stack) inside the Linux environment",
+          "Set up a boot script (Termux:Boot or an init.d entry) so services start automatically after a power cycle"
+        ],
+        "ru": [
+          "Сделайте резервную копию данных, затем разблокируйте загрузчик в настройках разработчика",
+          "Получите root (Magisk) или прошейте кастомный recovery (TWRP) для вашей точной модели",
+          "Установите Linux-слой — Linux Deploy, UserLAnd или нативный порт вроде postmarketOS/Ubuntu Touch, если он есть для устройства",
+          "Подключитесь по SSH, задайте статический IP или зарезервируйте его на роутере",
+          "Установите Docker/Portainer (или другой стек) внутри Linux-окружения",
+          "Настройте скрипт автозапуска (Termux:Boot или запись в init.d), чтобы сервисы поднимались после перезагрузки"
+        ],
+        "pl": [
+          "Zrób kopię zapasową danych, następnie odblokuj bootloader w opcjach dla programistów",
+          "Zrootuj urządzenie (Magisk) lub wgraj custom recovery (TWRP) dla dokładnie tego modelu",
+          "Zainstaluj warstwę Linuksa — Linux Deploy, UserLAnd lub natywny port typu postmarketOS/Ubuntu Touch, jeśli istnieje dla tego urządzenia",
+          "Połącz się przez SSH, ustaw statyczny IP lub zarezerwuj go na routerze",
+          "Zainstaluj Docker/Portainer (lub inny wybrany stack) w środowisku Linux",
+          "Skonfiguruj skrypt startowy (Termux:Boot lub wpis w init.d), aby usługi startowały automatycznie po restarcie zasilania"
+        ]
+      }
+    }
   },
   {
-    "id": "samsung_s8", "type": "smartphone",
-    "name": "Samsung S8", "cpu": "Exynos 8895","nm": 2, "cores": "8/8",
-   "core-tdp": 5,  "ram": 4, "ramtype": "DDR4", "rom": "64", "romtype": "UFS 2.0",
-    "powerW": 5, "powerAvg": 6, "powerMax": 10,
-    "score": 220000, "antu": 202256, "benchmark": 220, "sysbench": 3000,
-    "os": "Android", "newos": "Ubuntu Touch",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Samsung+S8"
+    "id": "samsung_s8",
+    "type": "smartphone",
+    "name": "Samsung S8",
+    "cpu": "Exynos 8895",
+    "nm": 2,
+    "cores": "8/8",
+    "core-tdp": 5,
+    "ram": 4,
+    "ramtype": "DDR4",
+    "rom": "64",
+    "romtype": "UFS 2.0",
+    "powerW": 5,
+    "powerAvg": 6,
+    "powerMax": 10,
+    "score": 220000,
+    "antu": 202256,
+    "benchmark": 220,
+    "sysbench": 3000,
+    "os": "Android",
+    "newos": "Ubuntu Touch",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Samsung+S8",
+    "ratings": {
+      "os": 8,
+      "wifi": 7,
+      "battery": 7,
+      "usb": 4,
+      "price": 5,
+      "performance": 2.9
+    },
+    "description": {
+      "en": "The Samsung S8 (Exynos 8895) is a retired phone we repurpose into a low-power home server, running Ubuntu Touch instead of its original Android.",
+      "ru": "Samsung S8 (Exynos 8895) — списанный телефон, который мы превращаем в экономичный домашний сервер, устанавливая Ubuntu Touch вместо родной Android.",
+      "pl": "Samsung S8 (Exynos 8895) to wysłużony telefon, który zamieniamy w oszczędny serwer domowy, instalując Ubuntu Touch zamiast oryginalnego Android."
+    },
+    "pros": {
+      "en": [
+        "4 GB RAM is enough for several lightweight services at once",
+        "Very low power draw — cheap to keep running 24/7",
+        "8-thread CPU handles several containers without choking",
+        "Runs mainline Ubuntu Touch, so most homelab guides just work"
+      ],
+      "ru": [
+        "4 ГБ ОЗУ хватает для нескольких лёгких сервисов одновременно",
+        "Очень низкое энергопотребление — дёшево держать включённым 24/7",
+        "8-поточный процессор без проблем тянет несколько контейнеров",
+        "Работает на обычном Ubuntu Touch, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "4 GB RAM wystarcza na kilka lekkich usług jednocześnie",
+        "Bardzo niski pobór mocy — tanio w pracy 24/7",
+        "8-wątkowy procesor bez problemu obsłuży kilka kontenerów",
+        "Działa na standardowym Ubuntu Touch, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "Limited official documentation for this exact conversion, expect some trial and error"
+      ],
+      "ru": [
+        "Мало официальной документации именно по этой переделке, будьте готовы к экспериментам"
+      ],
+      "pl": [
+        "Mało oficjalnej dokumentacji dla akurat tej przeróbki, spodziewajcie się prób i błędów"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up your data, then unlock the bootloader in developer options",
+          "Root the device (Magisk) or flash a custom recovery (TWRP) for your exact model",
+          "Install a Linux layer — Linux Deploy, UserLAnd, or a native port such as postmarketOS/Ubuntu Touch if one exists for this device",
+          "Connect over SSH, set a static IP or reserve one on your router",
+          "Install Docker/Portainer (or your preferred stack) inside the Linux environment",
+          "Set up a boot script (Termux:Boot or an init.d entry) so services start automatically after a power cycle"
+        ],
+        "ru": [
+          "Сделайте резервную копию данных, затем разблокируйте загрузчик в настройках разработчика",
+          "Получите root (Magisk) или прошейте кастомный recovery (TWRP) для вашей точной модели",
+          "Установите Linux-слой — Linux Deploy, UserLAnd или нативный порт вроде postmarketOS/Ubuntu Touch, если он есть для устройства",
+          "Подключитесь по SSH, задайте статический IP или зарезервируйте его на роутере",
+          "Установите Docker/Portainer (или другой стек) внутри Linux-окружения",
+          "Настройте скрипт автозапуска (Termux:Boot или запись в init.d), чтобы сервисы поднимались после перезагрузки"
+        ],
+        "pl": [
+          "Zrób kopię zapasową danych, następnie odblokuj bootloader w opcjach dla programistów",
+          "Zrootuj urządzenie (Magisk) lub wgraj custom recovery (TWRP) dla dokładnie tego modelu",
+          "Zainstaluj warstwę Linuksa — Linux Deploy, UserLAnd lub natywny port typu postmarketOS/Ubuntu Touch, jeśli istnieje dla tego urządzenia",
+          "Połącz się przez SSH, ustaw statyczny IP lub zarezerwuj go na routerze",
+          "Zainstaluj Docker/Portainer (lub inny wybrany stack) w środowisku Linux",
+          "Skonfiguruj skrypt startowy (Termux:Boot lub wpis w init.d), aby usługi startowały automatycznie po restarcie zasilania"
+        ]
+      }
+    }
   },
   {
-    "id": "samsung_note9", "type": "smartphone",
-    "name": "Samsung Note 9", "cpu": "Exynos 9810","nm": 2, "cores": "8/8",
-   "core-tdp": 5,  "ram": 8, "ramtype": "DDR4", "rom": "512", "romtype": "UFS 2.1",
-    "powerW": 5, "powerAvg": 7, "powerMax": 15,
-    "score": 322000, "antu": 217950, "benchmark": 420, "sysbench": 4500,
-    "os": "Android", "newos": "Linux",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Samsung+Note+9"
+    "id": "samsung_note9",
+    "type": "smartphone",
+    "name": "Samsung Note 9",
+    "cpu": "Exynos 9810",
+    "nm": 2,
+    "cores": "8/8",
+    "core-tdp": 5,
+    "ram": 8,
+    "ramtype": "DDR4",
+    "rom": "512",
+    "romtype": "UFS 2.1",
+    "powerW": 5,
+    "powerAvg": 7,
+    "powerMax": 15,
+    "score": 322000,
+    "antu": 217950,
+    "benchmark": 420,
+    "sysbench": 4500,
+    "os": "Android",
+    "newos": "Linux",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Samsung+Note+9",
+    "ratings": {
+      "os": 7,
+      "wifi": 7,
+      "battery": 7,
+      "usb": 4,
+      "price": 5,
+      "performance": 7.1
+    },
+    "description": {
+      "en": "The Samsung Note 9 (Exynos 9810) is a retired phone we repurpose into a low-power home server, running Linux instead of its original Android.",
+      "ru": "Samsung Note 9 (Exynos 9810) — списанный телефон, который мы превращаем в экономичный домашний сервер, устанавливая Linux вместо родной Android.",
+      "pl": "Samsung Note 9 (Exynos 9810) to wysłużony telefon, który zamieniamy w oszczędny serwer domowy, instalując Linux zamiast oryginalnego Android."
+    },
+    "pros": {
+      "en": [
+        "8 GB RAM is enough for several lightweight services at once",
+        "Very low power draw — cheap to keep running 24/7",
+        "8-thread CPU handles several containers without choking",
+        "Fast UFS 2.1 storage instead of a slow SD card",
+        "Runs mainline Linux, so most homelab guides just work"
+      ],
+      "ru": [
+        "8 ГБ ОЗУ хватает для нескольких лёгких сервисов одновременно",
+        "Очень низкое энергопотребление — дёшево держать включённым 24/7",
+        "8-поточный процессор без проблем тянет несколько контейнеров",
+        "Быстрое хранилище UFS 2.1 вместо медленной SD-карты",
+        "Работает на обычном Linux, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "8 GB RAM wystarcza na kilka lekkich usług jednocześnie",
+        "Bardzo niski pobór mocy — tanio w pracy 24/7",
+        "8-wątkowy procesor bez problemu obsłuży kilka kontenerów",
+        "Szybki nośnik UFS 2.1 zamiast wolnej karty SD",
+        "Działa na standardowym Linux, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "Limited official documentation for this exact conversion, expect some trial and error"
+      ],
+      "ru": [
+        "Мало официальной документации именно по этой переделке, будьте готовы к экспериментам"
+      ],
+      "pl": [
+        "Mało oficjalnej dokumentacji dla akurat tej przeróbki, spodziewajcie się prób i błędów"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up your data, then unlock the bootloader in developer options",
+          "Root the device (Magisk) or flash a custom recovery (TWRP) for your exact model",
+          "Install a Linux layer — Linux Deploy, UserLAnd, or a native port such as postmarketOS/Ubuntu Touch if one exists for this device",
+          "Connect over SSH, set a static IP or reserve one on your router",
+          "Install Docker/Portainer (or your preferred stack) inside the Linux environment",
+          "Set up a boot script (Termux:Boot or an init.d entry) so services start automatically after a power cycle"
+        ],
+        "ru": [
+          "Сделайте резервную копию данных, затем разблокируйте загрузчик в настройках разработчика",
+          "Получите root (Magisk) или прошейте кастомный recovery (TWRP) для вашей точной модели",
+          "Установите Linux-слой — Linux Deploy, UserLAnd или нативный порт вроде postmarketOS/Ubuntu Touch, если он есть для устройства",
+          "Подключитесь по SSH, задайте статический IP или зарезервируйте его на роутере",
+          "Установите Docker/Portainer (или другой стек) внутри Linux-окружения",
+          "Настройте скрипт автозапуска (Termux:Boot или запись в init.d), чтобы сервисы поднимались после перезагрузки"
+        ],
+        "pl": [
+          "Zrób kopię zapasową danych, następnie odblokuj bootloader w opcjach dla programistów",
+          "Zrootuj urządzenie (Magisk) lub wgraj custom recovery (TWRP) dla dokładnie tego modelu",
+          "Zainstaluj warstwę Linuksa — Linux Deploy, UserLAnd lub natywny port typu postmarketOS/Ubuntu Touch, jeśli istnieje dla tego urządzenia",
+          "Połącz się przez SSH, ustaw statyczny IP lub zarezerwuj go na routerze",
+          "Zainstaluj Docker/Portainer (lub inny wybrany stack) w środowisku Linux",
+          "Skonfiguruj skrypt startowy (Termux:Boot lub wpis w init.d), aby usługi startowały automatycznie po restarcie zasilania"
+        ]
+      }
+    }
   },
   {
-    "id": "xperia_m2", "type": "smartphone",
-    "name": "Xperia M2 LTE (D2303)", "cpu": "Snapdragon 400","nm": 2, "cores": "4/4",
-   "core-tdp": 5,  "ram": 1, "ramtype": "", "rom": "8", "romtype": "",
-    "powerW": 3, "powerAvg": 3, "powerMax": 5,
-    "score": 0, "antu": 17949, "benchmark": 130, "sysbench": 800,
-    "os": "Android", "newos": "Debian",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Xperia+M2+D2303"
+    "id": "xperia_m2",
+    "type": "smartphone",
+    "name": "Xperia M2 LTE (D2303)",
+    "cpu": "Snapdragon 400",
+    "nm": 2,
+    "cores": "4/4",
+    "core-tdp": 5,
+    "ram": 1,
+    "ramtype": "",
+    "rom": "8",
+    "romtype": "",
+    "powerW": 3,
+    "powerAvg": 3,
+    "powerMax": 5,
+    "score": 0,
+    "antu": 17949,
+    "benchmark": 130,
+    "sysbench": 800,
+    "os": "Android",
+    "newos": "Debian",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Xperia+M2+D2303",
+    "ratings": {
+      "os": 8,
+      "wifi": 7,
+      "battery": 7,
+      "usb": 4,
+      "price": 5,
+      "performance": 1.0
+    },
+    "description": {
+      "en": "The Xperia M2 LTE (D2303) (Snapdragon 400) is a retired phone we repurpose into a low-power home server, running Debian instead of its original Android.",
+      "ru": "Xperia M2 LTE (D2303) (Snapdragon 400) — списанный телефон, который мы превращаем в экономичный домашний сервер, устанавливая Debian вместо родной Android.",
+      "pl": "Xperia M2 LTE (D2303) (Snapdragon 400) to wysłużony telefon, który zamieniamy w oszczędny serwer domowy, instalując Debian zamiast oryginalnego Android."
+    },
+    "pros": {
+      "en": [
+        "Very low power draw — cheap to keep running 24/7",
+        "Runs mainline Debian, so most homelab guides just work"
+      ],
+      "ru": [
+        "Очень низкое энергопотребление — дёшево держать включённым 24/7",
+        "Работает на обычном Debian, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "Bardzo niski pobór mocy — tanio w pracy 24/7",
+        "Działa na standardowym Debian, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "Only 1 GB RAM limits how many services can run at once",
+        "Very little onboard storage, an external/USB drive is basically required"
+      ],
+      "ru": [
+        "Всего 1 ГБ ОЗУ — ограничивает число одновременно работающих сервисов",
+        "Очень мало встроенной памяти, почти обязательно потребуется внешний/USB-накопитель"
+      ],
+      "pl": [
+        "Tylko 1 GB RAM ogranicza liczbę usług działających naraz",
+        "Bardzo mało pamięci wbudowanej, praktycznie wymagany jest dysk zewnętrzny/USB"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up your data, then unlock the bootloader in developer options",
+          "Root the device (Magisk) or flash a custom recovery (TWRP) for your exact model",
+          "Install a Linux layer — Linux Deploy, UserLAnd, or a native port such as postmarketOS/Ubuntu Touch if one exists for this device",
+          "Connect over SSH, set a static IP or reserve one on your router",
+          "Install Docker/Portainer (or your preferred stack) inside the Linux environment",
+          "Set up a boot script (Termux:Boot or an init.d entry) so services start automatically after a power cycle"
+        ],
+        "ru": [
+          "Сделайте резервную копию данных, затем разблокируйте загрузчик в настройках разработчика",
+          "Получите root (Magisk) или прошейте кастомный recovery (TWRP) для вашей точной модели",
+          "Установите Linux-слой — Linux Deploy, UserLAnd или нативный порт вроде postmarketOS/Ubuntu Touch, если он есть для устройства",
+          "Подключитесь по SSH, задайте статический IP или зарезервируйте его на роутере",
+          "Установите Docker/Portainer (или другой стек) внутри Linux-окружения",
+          "Настройте скрипт автозапуска (Termux:Boot или запись в init.d), чтобы сервисы поднимались после перезагрузки"
+        ],
+        "pl": [
+          "Zrób kopię zapasową danych, następnie odblokuj bootloader w opcjach dla programistów",
+          "Zrootuj urządzenie (Magisk) lub wgraj custom recovery (TWRP) dla dokładnie tego modelu",
+          "Zainstaluj warstwę Linuksa — Linux Deploy, UserLAnd lub natywny port typu postmarketOS/Ubuntu Touch, jeśli istnieje dla tego urządzenia",
+          "Połącz się przez SSH, ustaw statyczny IP lub zarezerwuj go na routerze",
+          "Zainstaluj Docker/Portainer (lub inny wybrany stack) w środowisku Linux",
+          "Skonfiguruj skrypt startowy (Termux:Boot lub wpis w init.d), aby usługi startowały automatycznie po restarcie zasilania"
+        ]
+      }
+    }
   },
   {
-    "id": "oneplus8pro", "type": "smartphone",
-    "name": "OnePlus 8 Pro", "cpu": "Snapdragon 865","nm": 2, "cores": "8/8",
-   "core-tdp": 5,  "ram": 8, "ramtype": "DDR5", "rom": "128", "romtype": "UFS 3.0",
-    "powerW": 10, "powerAvg": 12, "powerMax": 30,
-    "score": 745000, "antu": 745300, "benchmark": 560, "sysbench": 6000,
-    "os": "Android 11", "newos": "PostmarketOS",
-    "ebay": "https://www.ebay.pl/sch/i.html?_nkw=OnePlus+8+Pro"
+    "id": "oneplus8pro",
+    "type": "smartphone",
+    "name": "OnePlus 8 Pro",
+    "cpu": "Snapdragon 865",
+    "nm": 2,
+    "cores": "8/8",
+    "core-tdp": 5,
+    "ram": 8,
+    "ramtype": "DDR5",
+    "rom": "128",
+    "romtype": "UFS 3.0",
+    "powerW": 10,
+    "powerAvg": 12,
+    "powerMax": 30,
+    "score": 745000,
+    "antu": 745300,
+    "benchmark": 560,
+    "sysbench": 6000,
+    "os": "Android 11",
+    "newos": "PostmarketOS",
+    "ebay": "https://www.ebay.pl/sch/i.html?_nkw=OnePlus+8+Pro",
+    "ratings": {
+      "os": 8,
+      "wifi": 7,
+      "battery": 7,
+      "usb": 4,
+      "price": 5,
+      "performance": 10.0
+    },
+    "description": {
+      "en": "The OnePlus 8 Pro (Snapdragon 865) is a retired phone we repurpose into a low-power home server, running PostmarketOS instead of its original Android 11.",
+      "ru": "OnePlus 8 Pro (Snapdragon 865) — списанный телефон, который мы превращаем в экономичный домашний сервер, устанавливая PostmarketOS вместо родной Android 11.",
+      "pl": "OnePlus 8 Pro (Snapdragon 865) to wysłużony telefon, który zamieniamy w oszczędny serwer domowy, instalując PostmarketOS zamiast oryginalnego Android 11."
+    },
+    "pros": {
+      "en": [
+        "8 GB RAM is enough for several lightweight services at once",
+        "8-thread CPU handles several containers without choking",
+        "Fast UFS 3.0 storage instead of a slow SD card",
+        "Runs mainline PostmarketOS, so most homelab guides just work"
+      ],
+      "ru": [
+        "8 ГБ ОЗУ хватает для нескольких лёгких сервисов одновременно",
+        "8-поточный процессор без проблем тянет несколько контейнеров",
+        "Быстрое хранилище UFS 3.0 вместо медленной SD-карты",
+        "Работает на обычном PostmarketOS, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "8 GB RAM wystarcza na kilka lekkich usług jednocześnie",
+        "8-wątkowy procesor bez problemu obsłuży kilka kontenerów",
+        "Szybki nośnik UFS 3.0 zamiast wolnej karty SD",
+        "Działa na standardowym PostmarketOS, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "Higher power draw than the other boards here for continuous 24/7 duty"
+      ],
+      "ru": [
+        "Более высокое энергопотребление, чем у других плат в списке, при работе 24/7"
+      ],
+      "pl": [
+        "Wyższy pobór mocy niż inne płyty z listy przy pracy 24/7"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up your data, then unlock the bootloader in developer options",
+          "Root the device (Magisk) or flash a custom recovery (TWRP) for your exact model",
+          "Install a Linux layer — Linux Deploy, UserLAnd, or a native port such as postmarketOS/Ubuntu Touch if one exists for this device",
+          "Connect over SSH, set a static IP or reserve one on your router",
+          "Install Docker/Portainer (or your preferred stack) inside the Linux environment",
+          "Set up a boot script (Termux:Boot or an init.d entry) so services start automatically after a power cycle"
+        ],
+        "ru": [
+          "Сделайте резервную копию данных, затем разблокируйте загрузчик в настройках разработчика",
+          "Получите root (Magisk) или прошейте кастомный recovery (TWRP) для вашей точной модели",
+          "Установите Linux-слой — Linux Deploy, UserLAnd или нативный порт вроде postmarketOS/Ubuntu Touch, если он есть для устройства",
+          "Подключитесь по SSH, задайте статический IP или зарезервируйте его на роутере",
+          "Установите Docker/Portainer (или другой стек) внутри Linux-окружения",
+          "Настройте скрипт автозапуска (Termux:Boot или запись в init.d), чтобы сервисы поднимались после перезагрузки"
+        ],
+        "pl": [
+          "Zrób kopię zapasową danych, następnie odblokuj bootloader w opcjach dla programistów",
+          "Zrootuj urządzenie (Magisk) lub wgraj custom recovery (TWRP) dla dokładnie tego modelu",
+          "Zainstaluj warstwę Linuksa — Linux Deploy, UserLAnd lub natywny port typu postmarketOS/Ubuntu Touch, jeśli istnieje dla tego urządzenia",
+          "Połącz się przez SSH, ustaw statyczny IP lub zarezerwuj go na routerze",
+          "Zainstaluj Docker/Portainer (lub inny wybrany stack) w środowisku Linux",
+          "Skonfiguruj skrypt startowy (Termux:Boot lub wpis w init.d), aby usługi startowały automatycznie po restarcie zasilania"
+        ]
+      }
+    }
   },
   {
-    "id": "redmi_note9_pro", "type": "smartphone",
-    "name": "Redmi Note 9 Pro", "cpu": "Snapdragon 720G","nm": 2, "cores": "8/8",
-   "core-tdp": 5,  "ram": 6, "ramtype": "DDR4", "rom": "128", "romtype": "UFS 2.1",
-    "powerW": 5, "powerAvg": 7, "powerMax": 18,
-    "score": 324000, "antu": 324596, "benchmark": 260, "sysbench": 4000,
-    "os": "Android", "newos": "Ubuntu",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Redmi+Note+9+Pro"
+    "id": "redmi_note9_pro",
+    "type": "smartphone",
+    "name": "Redmi Note 9 Pro",
+    "cpu": "Snapdragon 720G",
+    "nm": 2,
+    "cores": "8/8",
+    "core-tdp": 5,
+    "ram": 6,
+    "ramtype": "DDR4",
+    "rom": "128",
+    "romtype": "UFS 2.1",
+    "powerW": 5,
+    "powerAvg": 7,
+    "powerMax": 18,
+    "score": 324000,
+    "antu": 324596,
+    "benchmark": 260,
+    "sysbench": 4000,
+    "os": "Android",
+    "newos": "Ubuntu",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Redmi+Note+9+Pro",
+    "ratings": {
+      "os": 8,
+      "wifi": 7,
+      "battery": 7,
+      "usb": 4,
+      "price": 5,
+      "performance": 3.7
+    },
+    "description": {
+      "en": "The Redmi Note 9 Pro (Snapdragon 720G) is a retired phone we repurpose into a low-power home server, running Ubuntu instead of its original Android.",
+      "ru": "Redmi Note 9 Pro (Snapdragon 720G) — списанный телефон, который мы превращаем в экономичный домашний сервер, устанавливая Ubuntu вместо родной Android.",
+      "pl": "Redmi Note 9 Pro (Snapdragon 720G) to wysłużony telefon, który zamieniamy w oszczędny serwer domowy, instalując Ubuntu zamiast oryginalnego Android."
+    },
+    "pros": {
+      "en": [
+        "6 GB RAM is enough for several lightweight services at once",
+        "8-thread CPU handles several containers without choking",
+        "Fast UFS 2.1 storage instead of a slow SD card",
+        "Runs mainline Ubuntu, so most homelab guides just work"
+      ],
+      "ru": [
+        "6 ГБ ОЗУ хватает для нескольких лёгких сервисов одновременно",
+        "8-поточный процессор без проблем тянет несколько контейнеров",
+        "Быстрое хранилище UFS 2.1 вместо медленной SD-карты",
+        "Работает на обычном Ubuntu, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "6 GB RAM wystarcza na kilka lekkich usług jednocześnie",
+        "8-wątkowy procesor bez problemu obsłuży kilka kontenerów",
+        "Szybki nośnik UFS 2.1 zamiast wolnej karty SD",
+        "Działa na standardowym Ubuntu, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "Limited official documentation for this exact conversion, expect some trial and error"
+      ],
+      "ru": [
+        "Мало официальной документации именно по этой переделке, будьте готовы к экспериментам"
+      ],
+      "pl": [
+        "Mało oficjalnej dokumentacji dla akurat tej przeróbki, spodziewajcie się prób i błędów"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up your data, then unlock the bootloader in developer options",
+          "Root the device (Magisk) or flash a custom recovery (TWRP) for your exact model",
+          "Install a Linux layer — Linux Deploy, UserLAnd, or a native port such as postmarketOS/Ubuntu Touch if one exists for this device",
+          "Connect over SSH, set a static IP or reserve one on your router",
+          "Install Docker/Portainer (or your preferred stack) inside the Linux environment",
+          "Set up a boot script (Termux:Boot or an init.d entry) so services start automatically after a power cycle"
+        ],
+        "ru": [
+          "Сделайте резервную копию данных, затем разблокируйте загрузчик в настройках разработчика",
+          "Получите root (Magisk) или прошейте кастомный recovery (TWRP) для вашей точной модели",
+          "Установите Linux-слой — Linux Deploy, UserLAnd или нативный порт вроде postmarketOS/Ubuntu Touch, если он есть для устройства",
+          "Подключитесь по SSH, задайте статический IP или зарезервируйте его на роутере",
+          "Установите Docker/Portainer (или другой стек) внутри Linux-окружения",
+          "Настройте скрипт автозапуска (Termux:Boot или запись в init.d), чтобы сервисы поднимались после перезагрузки"
+        ],
+        "pl": [
+          "Zrób kopię zapasową danych, następnie odblokuj bootloader w opcjach dla programistów",
+          "Zrootuj urządzenie (Magisk) lub wgraj custom recovery (TWRP) dla dokładnie tego modelu",
+          "Zainstaluj warstwę Linuksa — Linux Deploy, UserLAnd lub natywny port typu postmarketOS/Ubuntu Touch, jeśli istnieje dla tego urządzenia",
+          "Połącz się przez SSH, ustaw statyczny IP lub zarezerwuj go na routerze",
+          "Zainstaluj Docker/Portainer (lub inny wybrany stack) w środowisku Linux",
+          "Skonfiguruj skrypt startowy (Termux:Boot lub wpis w init.d), aby usługi startowały automatycznie po restarcie zasilania"
+        ]
+      }
+    }
   },
   {
-    "id": "bananapi_r3", "type": "minipc",
-    "name": "Banana Pi R3", "cpu": "Mediatek 7986A","nm": 2, "cores": "4/4",
-   "core-tdp": 5,  "ram": 2, "ramtype": "", "rom": "8", "romtype": "eMMC",
-    "powerW": 8, "powerAvg": 9, "powerMax": 12,
-    "score": 0, "antu": 36345, "benchmark": 260, "sysbench": 2000,
-    "os": "OpenWRT", "newos": "OpenWRT",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Banana+Pi+R3"
+    "id": "bananapi_r3",
+    "type": "minipc",
+    "name": "Banana Pi R3",
+    "cpu": "Mediatek 7986A",
+    "nm": 2,
+    "cores": "4/4",
+    "core-tdp": 5,
+    "ram": 2,
+    "ramtype": "",
+    "rom": "8",
+    "romtype": "eMMC",
+    "powerW": 8,
+    "powerAvg": 9,
+    "powerMax": 12,
+    "score": 0,
+    "antu": 36345,
+    "benchmark": 260,
+    "sysbench": 2000,
+    "os": "OpenWRT",
+    "newos": "OpenWRT",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Banana+Pi+R3",
+    "ratings": {
+      "os": 8,
+      "wifi": 3,
+      "battery": 0,
+      "usb": 8,
+      "price": 5,
+      "performance": 1.1
+    },
+    "description": {
+      "en": "The Banana Pi R3 (Mediatek 7986A) is a retired mini PC we repurpose into a low-power home server, running OpenWRT instead of its original OpenWRT.",
+      "ru": "Banana Pi R3 (Mediatek 7986A) — списанный мини ПК, который мы превращаем в экономичный домашний сервер, устанавливая OpenWRT вместо родной OpenWRT.",
+      "pl": "Banana Pi R3 (Mediatek 7986A) to wysłużony mini PC, który zamieniamy w oszczędny serwer domowy, instalując OpenWRT zamiast oryginalnego OpenWRT."
+    },
+    "pros": {
+      "en": [
+        "Very low power draw — cheap to keep running 24/7",
+        "Runs mainline OpenWRT, so most homelab guides just work"
+      ],
+      "ru": [
+        "Очень низкое энергопотребление — дёшево держать включённым 24/7",
+        "Работает на обычном OpenWRT, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "Bardzo niski pobór mocy — tanio w pracy 24/7",
+        "Działa na standardowym OpenWRT, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "Only 2 GB RAM limits how many services can run at once",
+        "Very little onboard storage, an external/USB drive is basically required",
+        "No usable built-in Wi-Fi — plan on Ethernet or a USB adapter"
+      ],
+      "ru": [
+        "Всего 2 ГБ ОЗУ — ограничивает число одновременно работающих сервисов",
+        "Очень мало встроенной памяти, почти обязательно потребуется внешний/USB-накопитель",
+        "Нет нормального встроенного Wi-Fi — рассчитывайте на Ethernet или USB-адаптер"
+      ],
+      "pl": [
+        "Tylko 2 GB RAM ogranicza liczbę usług działających naraz",
+        "Bardzo mało pamięci wbudowanej, praktycznie wymagany jest dysk zewnętrzny/USB",
+        "Brak sensownego wbudowanego Wi-Fi — liczcie na Ethernet lub adapter USB"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up the original OS/firmware before touching anything",
+          "Create a bootable USB drive with the target OS (Debian/Ubuntu/Armbian/Proxmox) using Rufus or BalenaEtcher",
+          "Boot from the USB drive via the boot menu/BIOS and install the target OS to the internal storage",
+          "Update drivers/firmware and confirm the network interface (and Wi-Fi, if any) works correctly",
+          "Install Docker/Portainer, or Proxmox VE itself if you installed a hypervisor, and set up your containers/VMs",
+          "In BIOS, enable 'power on after power loss' and set up remote access (SSH, Tailscale/WireGuard) for headless 24/7 operation"
+        ],
+        "ru": [
+          "Сделайте резервную копию оригинальной ОС/прошивки прежде чем что-либо менять",
+          "Создайте загрузочную USB-флешку с целевой ОС (Debian/Ubuntu/Armbian/Proxmox) через Rufus или BalenaEtcher",
+          "Загрузитесь с флешки через boot-меню/BIOS и установите целевую ОС на встроенный накопитель",
+          "Обновите драйверы/прошивку и проверьте, что сеть (и Wi-Fi, если есть) работают корректно",
+          "Установите Docker/Portainer, либо сам Proxmox VE, если ставили гипервизор, и настройте контейнеры/ВМ",
+          "В BIOS включите 'включение после отключения питания' и настройте удалённый доступ (SSH, Tailscale/WireGuard) для работы без монитора 24/7"
+        ],
+        "pl": [
+          "Zrób kopię zapasową oryginalnego systemu/firmware zanim cokolwiek zmienisz",
+          "Utwórz bootowalny pendrive z docelowym systemem (Debian/Ubuntu/Armbian/Proxmox) w Rufus lub BalenaEtcher",
+          "Uruchom z pendrive'a przez menu rozruchu/BIOS i zainstaluj docelowy system na wewnętrznym nośniku",
+          "Zaktualizuj sterowniki/firmware i sprawdź, czy sieć (oraz Wi-Fi, jeśli jest) działa poprawnie",
+          "Zainstaluj Docker/Portainer albo sam Proxmox VE, jeśli postawiłeś hypervisor, i skonfiguruj kontenery/VM",
+          "W BIOS włącz 'power on after power loss' i skonfiguruj zdalny dostęp (SSH, Tailscale/WireGuard) do pracy bez monitora 24/7"
+        ]
+      }
+    }
   },
   {
-    "id": "amlogic_s912", "type": "tvbox",
-    "name": "Mecool M8S Pro", "cpu": "Amlogic S912","nm": 28, "cores": "8/8",
-   "core-tdp": 5,  "ram": 3, "ramtype": "", "rom": "16", "romtype": "eMMC",
-    "powerW": 5, "powerAvg": 6, "powerMax": 10,
-    "score": 0, "antu": 49945,  "benchmark": 170, "sysbench": 1800,
-    "os": "Android", "newos": "Armbian",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Mecool+M8S+Pro"
+    "id": "amlogic_s912",
+    "type": "tvbox",
+    "name": "Mecool M8S Pro",
+    "cpu": "Amlogic S912",
+    "nm": 28,
+    "cores": "8/8",
+    "core-tdp": 5,
+    "ram": 3,
+    "ramtype": "",
+    "rom": "16",
+    "romtype": "eMMC",
+    "powerW": 5,
+    "powerAvg": 6,
+    "powerMax": 10,
+    "score": 0,
+    "antu": 49945,
+    "benchmark": 170,
+    "sysbench": 1800,
+    "os": "Android",
+    "newos": "Armbian",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Mecool+M8S+Pro",
+    "ratings": {
+      "os": 8,
+      "wifi": 6,
+      "battery": 0,
+      "usb": 6,
+      "price": 5,
+      "performance": 10.0
+    },
+    "description": {
+      "en": "The Mecool M8S Pro (Amlogic S912) is a retired TV box we repurpose into a low-power home server, running Armbian instead of its original Android.",
+      "ru": "Mecool M8S Pro (Amlogic S912) — списанный ТВ-бокс, который мы превращаем в экономичный домашний сервер, устанавливая Armbian вместо родной Android.",
+      "pl": "Mecool M8S Pro (Amlogic S912) to wysłużony TV box, który zamieniamy w oszczędny serwer domowy, instalując Armbian zamiast oryginalnego Android."
+    },
+    "pros": {
+      "en": [
+        "Very low power draw — cheap to keep running 24/7",
+        "8-thread CPU handles several containers without choking",
+        "Runs mainline Armbian, so most homelab guides just work"
+      ],
+      "ru": [
+        "Очень низкое энергопотребление — дёшево держать включённым 24/7",
+        "8-поточный процессор без проблем тянет несколько контейнеров",
+        "Работает на обычном Armbian, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "Bardzo niski pobór mocy — tanio w pracy 24/7",
+        "8-wątkowy procesor bez problemu obsłuży kilka kontenerów",
+        "Działa na standardowym Armbian, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "Very little onboard storage, an external/USB drive is basically required"
+      ],
+      "ru": [
+        "Очень мало встроенной памяти, почти обязательно потребуется внешний/USB-накопитель"
+      ],
+      "pl": [
+        "Bardzo mało pamięci wbudowanej, praktycznie wymagany jest dysk zewnętrzny/USB"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up the original OS/firmware before touching anything",
+          "Create a bootable USB drive with the target OS (Debian/Ubuntu/Armbian/Proxmox) using Rufus or BalenaEtcher",
+          "Boot from the USB drive via the boot menu/BIOS and install the target OS to the internal storage",
+          "Update drivers/firmware and confirm the network interface (and Wi-Fi, if any) works correctly",
+          "Install Docker/Portainer, or Proxmox VE itself if you installed a hypervisor, and set up your containers/VMs",
+          "In BIOS, enable 'power on after power loss' and set up remote access (SSH, Tailscale/WireGuard) for headless 24/7 operation"
+        ],
+        "ru": [
+          "Сделайте резервную копию оригинальной ОС/прошивки прежде чем что-либо менять",
+          "Создайте загрузочную USB-флешку с целевой ОС (Debian/Ubuntu/Armbian/Proxmox) через Rufus или BalenaEtcher",
+          "Загрузитесь с флешки через boot-меню/BIOS и установите целевую ОС на встроенный накопитель",
+          "Обновите драйверы/прошивку и проверьте, что сеть (и Wi-Fi, если есть) работают корректно",
+          "Установите Docker/Portainer, либо сам Proxmox VE, если ставили гипервизор, и настройте контейнеры/ВМ",
+          "В BIOS включите 'включение после отключения питания' и настройте удалённый доступ (SSH, Tailscale/WireGuard) для работы без монитора 24/7"
+        ],
+        "pl": [
+          "Zrób kopię zapasową oryginalnego systemu/firmware zanim cokolwiek zmienisz",
+          "Utwórz bootowalny pendrive z docelowym systemem (Debian/Ubuntu/Armbian/Proxmox) w Rufus lub BalenaEtcher",
+          "Uruchom z pendrive'a przez menu rozruchu/BIOS i zainstaluj docelowy system na wewnętrznym nośniku",
+          "Zaktualizuj sterowniki/firmware i sprawdź, czy sieć (oraz Wi-Fi, jeśli jest) działa poprawnie",
+          "Zainstaluj Docker/Portainer albo sam Proxmox VE, jeśli postawiłeś hypervisor, i skonfiguruj kontenery/VM",
+          "W BIOS włącz 'power on after power loss' i skonfiguruj zdalny dostęp (SSH, Tailscale/WireGuard) do pracy bez monitora 24/7"
+        ]
+      }
+    }
   },
   {
-    "id": "amlogic_s905x3", "type": "tvbox",
-    "name": "Amlogic S905x3 TV Box", "cpu": "Amlogic S905x3","nm": 12, "cores": "4/4",
-   "core-tdp": 5,  "ram": 4, "ramtype": "DDR3", "rom": "32", "romtype": "eMMC",
-    "powerW": 5, "powerAvg": 6, "powerMax": 10,
-    "score": 0, "antu": 74472,  "benchmark": 128, "sysbench": 1600,
-    "os": "Android 9", "newos": "Armbian",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Amlogic+S905X3"
+    "id": "amlogic_s905x3",
+    "type": "tvbox",
+    "name": "Amlogic S905x3 TV Box",
+    "cpu": "Amlogic S905x3",
+    "nm": 12,
+    "cores": "4/4",
+    "core-tdp": 5,
+    "ram": 4,
+    "ramtype": "DDR3",
+    "rom": "32",
+    "romtype": "eMMC",
+    "powerW": 5,
+    "powerAvg": 6,
+    "powerMax": 10,
+    "score": 0,
+    "antu": 74472,
+    "benchmark": 128,
+    "sysbench": 1600,
+    "os": "Android 9",
+    "newos": "Armbian",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Amlogic+S905X3",
+    "ratings": {
+      "os": 8,
+      "wifi": 6,
+      "battery": 0,
+      "usb": 6,
+      "price": 5,
+      "performance": 1.0
+    },
+    "description": {
+      "en": "The Amlogic S905x3 TV Box (Amlogic S905x3) is a retired TV box we repurpose into a low-power home server, running Armbian instead of its original Android 9.",
+      "ru": "Amlogic S905x3 TV Box (Amlogic S905x3) — списанный ТВ-бокс, который мы превращаем в экономичный домашний сервер, устанавливая Armbian вместо родной Android 9.",
+      "pl": "Amlogic S905x3 TV Box (Amlogic S905x3) to wysłużony TV box, który zamieniamy w oszczędny serwer domowy, instalując Armbian zamiast oryginalnego Android 9."
+    },
+    "pros": {
+      "en": [
+        "4 GB RAM is enough for several lightweight services at once",
+        "Very low power draw — cheap to keep running 24/7",
+        "Runs mainline Armbian, so most homelab guides just work"
+      ],
+      "ru": [
+        "4 ГБ ОЗУ хватает для нескольких лёгких сервисов одновременно",
+        "Очень низкое энергопотребление — дёшево держать включённым 24/7",
+        "Работает на обычном Armbian, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "4 GB RAM wystarcza na kilka lekkich usług jednocześnie",
+        "Bardzo niski pobór mocy — tanio w pracy 24/7",
+        "Działa na standardowym Armbian, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "Limited official documentation for this exact conversion, expect some trial and error"
+      ],
+      "ru": [
+        "Мало официальной документации именно по этой переделке, будьте готовы к экспериментам"
+      ],
+      "pl": [
+        "Mało oficjalnej dokumentacji dla akurat tej przeróbki, spodziewajcie się prób i błędów"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up the original OS/firmware before touching anything",
+          "Create a bootable USB drive with the target OS (Debian/Ubuntu/Armbian/Proxmox) using Rufus or BalenaEtcher",
+          "Boot from the USB drive via the boot menu/BIOS and install the target OS to the internal storage",
+          "Update drivers/firmware and confirm the network interface (and Wi-Fi, if any) works correctly",
+          "Install Docker/Portainer, or Proxmox VE itself if you installed a hypervisor, and set up your containers/VMs",
+          "In BIOS, enable 'power on after power loss' and set up remote access (SSH, Tailscale/WireGuard) for headless 24/7 operation"
+        ],
+        "ru": [
+          "Сделайте резервную копию оригинальной ОС/прошивки прежде чем что-либо менять",
+          "Создайте загрузочную USB-флешку с целевой ОС (Debian/Ubuntu/Armbian/Proxmox) через Rufus или BalenaEtcher",
+          "Загрузитесь с флешки через boot-меню/BIOS и установите целевую ОС на встроенный накопитель",
+          "Обновите драйверы/прошивку и проверьте, что сеть (и Wi-Fi, если есть) работают корректно",
+          "Установите Docker/Portainer, либо сам Proxmox VE, если ставили гипервизор, и настройте контейнеры/ВМ",
+          "В BIOS включите 'включение после отключения питания' и настройте удалённый доступ (SSH, Tailscale/WireGuard) для работы без монитора 24/7"
+        ],
+        "pl": [
+          "Zrób kopię zapasową oryginalnego systemu/firmware zanim cokolwiek zmienisz",
+          "Utwórz bootowalny pendrive z docelowym systemem (Debian/Ubuntu/Armbian/Proxmox) w Rufus lub BalenaEtcher",
+          "Uruchom z pendrive'a przez menu rozruchu/BIOS i zainstaluj docelowy system na wewnętrznym nośniku",
+          "Zaktualizuj sterowniki/firmware i sprawdź, czy sieć (oraz Wi-Fi, jeśli jest) działa poprawnie",
+          "Zainstaluj Docker/Portainer albo sam Proxmox VE, jeśli postawiłeś hypervisor, i skonfiguruj kontenery/VM",
+          "W BIOS włącz 'power on after power loss' i skonfiguruj zdalny dostęp (SSH, Tailscale/WireGuard) do pracy bez monitora 24/7"
+        ]
+      }
+    }
   },
   {
-    "id": "intel_z8350", "type": "minipc",
-    "name": "Intel STK1AW32SC", "cpu": "Intel x5 Z8350","nm": 14, "cores": "4/4",
-   "core-tdp": 5,  "ram": 2, "ramtype": "DDR3", "rom": "32", "romtype": "eMMC",
-    "powerW": 2, "powerAvg": 4, "powerMax": 6,
-    "score": 0, "antu": 58565, "benchmark": 97, "sysbench": 1200,
-    "os": "Windows", "newos": "Debian",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Intel+Compute+Stick+Z8330"
+    "id": "intel_z8350",
+    "type": "minipc",
+    "name": "Intel STK1AW32SC",
+    "cpu": "Intel x5 Z8350",
+    "nm": 14,
+    "cores": "4/4",
+    "core-tdp": 5,
+    "ram": 2,
+    "ramtype": "DDR3",
+    "rom": "32",
+    "romtype": "eMMC",
+    "powerW": 2,
+    "powerAvg": 4,
+    "powerMax": 6,
+    "score": 0,
+    "antu": 58565,
+    "benchmark": 97,
+    "sysbench": 1200,
+    "os": "Windows",
+    "newos": "Debian",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Intel+Compute+Stick+Z8330",
+    "ratings": {
+      "os": 8,
+      "wifi": 3,
+      "battery": 0,
+      "usb": 8,
+      "price": 5,
+      "performance": 1.0
+    },
+    "description": {
+      "en": "The Intel STK1AW32SC (Intel x5 Z8350) is a retired mini PC we repurpose into a low-power home server, running Debian instead of its original Windows.",
+      "ru": "Intel STK1AW32SC (Intel x5 Z8350) — списанный мини ПК, который мы превращаем в экономичный домашний сервер, устанавливая Debian вместо родной Windows.",
+      "pl": "Intel STK1AW32SC (Intel x5 Z8350) to wysłużony mini PC, który zamieniamy w oszczędny serwer domowy, instalując Debian zamiast oryginalnego Windows."
+    },
+    "pros": {
+      "en": [
+        "Very low power draw — cheap to keep running 24/7",
+        "Runs mainline Debian, so most homelab guides just work"
+      ],
+      "ru": [
+        "Очень низкое энергопотребление — дёшево держать включённым 24/7",
+        "Работает на обычном Debian, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "Bardzo niski pobór mocy — tanio w pracy 24/7",
+        "Działa na standardowym Debian, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "Only 2 GB RAM limits how many services can run at once",
+        "No usable built-in Wi-Fi — plan on Ethernet or a USB adapter"
+      ],
+      "ru": [
+        "Всего 2 ГБ ОЗУ — ограничивает число одновременно работающих сервисов",
+        "Нет нормального встроенного Wi-Fi — рассчитывайте на Ethernet или USB-адаптер"
+      ],
+      "pl": [
+        "Tylko 2 GB RAM ogranicza liczbę usług działających naraz",
+        "Brak sensownego wbudowanego Wi-Fi — liczcie na Ethernet lub adapter USB"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up the original OS/firmware before touching anything",
+          "Create a bootable USB drive with the target OS (Debian/Ubuntu/Armbian/Proxmox) using Rufus or BalenaEtcher",
+          "Boot from the USB drive via the boot menu/BIOS and install the target OS to the internal storage",
+          "Update drivers/firmware and confirm the network interface (and Wi-Fi, if any) works correctly",
+          "Install Docker/Portainer, or Proxmox VE itself if you installed a hypervisor, and set up your containers/VMs",
+          "In BIOS, enable 'power on after power loss' and set up remote access (SSH, Tailscale/WireGuard) for headless 24/7 operation"
+        ],
+        "ru": [
+          "Сделайте резервную копию оригинальной ОС/прошивки прежде чем что-либо менять",
+          "Создайте загрузочную USB-флешку с целевой ОС (Debian/Ubuntu/Armbian/Proxmox) через Rufus или BalenaEtcher",
+          "Загрузитесь с флешки через boot-меню/BIOS и установите целевую ОС на встроенный накопитель",
+          "Обновите драйверы/прошивку и проверьте, что сеть (и Wi-Fi, если есть) работают корректно",
+          "Установите Docker/Portainer, либо сам Proxmox VE, если ставили гипервизор, и настройте контейнеры/ВМ",
+          "В BIOS включите 'включение после отключения питания' и настройте удалённый доступ (SSH, Tailscale/WireGuard) для работы без монитора 24/7"
+        ],
+        "pl": [
+          "Zrób kopię zapasową oryginalnego systemu/firmware zanim cokolwiek zmienisz",
+          "Utwórz bootowalny pendrive z docelowym systemem (Debian/Ubuntu/Armbian/Proxmox) w Rufus lub BalenaEtcher",
+          "Uruchom z pendrive'a przez menu rozruchu/BIOS i zainstaluj docelowy system na wewnętrznym nośniku",
+          "Zaktualizuj sterowniki/firmware i sprawdź, czy sieć (oraz Wi-Fi, jeśli jest) działa poprawnie",
+          "Zainstaluj Docker/Portainer albo sam Proxmox VE, jeśli postawiłeś hypervisor, i skonfiguruj kontenery/VM",
+          "W BIOS włącz 'power on after power loss' i skonfiguruj zdalny dostęp (SSH, Tailscale/WireGuard) do pracy bez monitora 24/7"
+        ]
+      }
+    }
   },
   {
-    "id": "lenovo_m93p_4590t", "type": "minipc",
-    "name": "Lenovo M93p", "cpu": "i5-4590T","nm": 22, "cores": "4/4", 
-   "core-tdp": 35,  "ram": 4, "ramtype": "DDR3", "rom": "", "romtype": "",
-    "powerW": 35, "powerAvg": 40, "powerMax": 65,
-    "score": 0, "antu": 0,  "benchmark": 298, "sysbench": 5000,
-    "os": "Windows", "newos": "Proxmox",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Lenovo+M93p+i5-4590T"
+    "id": "lenovo_m93p_4590t",
+    "type": "minipc",
+    "name": "Lenovo M93p",
+    "cpu": "i5-4590T",
+    "nm": 22,
+    "cores": "4/4",
+    "core-tdp": 35,
+    "ram": 4,
+    "ramtype": "DDR3",
+    "rom": "",
+    "romtype": "",
+    "powerW": 35,
+    "powerAvg": 40,
+    "powerMax": 65,
+    "score": 0,
+    "antu": 0,
+    "benchmark": 298,
+    "sysbench": 5000,
+    "os": "Windows",
+    "newos": "Proxmox",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Lenovo+M93p+i5-4590T",
+    "ratings": {
+      "os": 8,
+      "wifi": 3,
+      "battery": 0,
+      "usb": 8,
+      "price": 5,
+      "performance": 1.2
+    },
+    "description": {
+      "en": "The Lenovo M93p (i5-4590T) is a retired mini PC we repurpose into a low-power home server, running Proxmox instead of its original Windows.",
+      "ru": "Lenovo M93p (i5-4590T) — списанный мини ПК, который мы превращаем в экономичный домашний сервер, устанавливая Proxmox вместо родной Windows.",
+      "pl": "Lenovo M93p (i5-4590T) to wysłużony mini PC, który zamieniamy w oszczędny serwer domowy, instalując Proxmox zamiast oryginalnego Windows."
+    },
+    "pros": {
+      "en": [
+        "4 GB RAM is enough for several lightweight services at once",
+        "Runs mainline Proxmox, so most homelab guides just work"
+      ],
+      "ru": [
+        "4 ГБ ОЗУ хватает для нескольких лёгких сервисов одновременно",
+        "Работает на обычном Proxmox, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "4 GB RAM wystarcza na kilka lekkich usług jednocześnie",
+        "Działa na standardowym Proxmox, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "Higher power draw than the other boards here for continuous 24/7 duty",
+        "No usable built-in Wi-Fi — plan on Ethernet or a USB adapter"
+      ],
+      "ru": [
+        "Более высокое энергопотребление, чем у других плат в списке, при работе 24/7",
+        "Нет нормального встроенного Wi-Fi — рассчитывайте на Ethernet или USB-адаптер"
+      ],
+      "pl": [
+        "Wyższy pobór mocy niż inne płyty z listy przy pracy 24/7",
+        "Brak sensownego wbudowanego Wi-Fi — liczcie na Ethernet lub adapter USB"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up the original OS/firmware before touching anything",
+          "Create a bootable USB drive with the target OS (Debian/Ubuntu/Armbian/Proxmox) using Rufus or BalenaEtcher",
+          "Boot from the USB drive via the boot menu/BIOS and install the target OS to the internal storage",
+          "Update drivers/firmware and confirm the network interface (and Wi-Fi, if any) works correctly",
+          "Install Docker/Portainer, or Proxmox VE itself if you installed a hypervisor, and set up your containers/VMs",
+          "In BIOS, enable 'power on after power loss' and set up remote access (SSH, Tailscale/WireGuard) for headless 24/7 operation"
+        ],
+        "ru": [
+          "Сделайте резервную копию оригинальной ОС/прошивки прежде чем что-либо менять",
+          "Создайте загрузочную USB-флешку с целевой ОС (Debian/Ubuntu/Armbian/Proxmox) через Rufus или BalenaEtcher",
+          "Загрузитесь с флешки через boot-меню/BIOS и установите целевую ОС на встроенный накопитель",
+          "Обновите драйверы/прошивку и проверьте, что сеть (и Wi-Fi, если есть) работают корректно",
+          "Установите Docker/Portainer, либо сам Proxmox VE, если ставили гипервизор, и настройте контейнеры/ВМ",
+          "В BIOS включите 'включение после отключения питания' и настройте удалённый доступ (SSH, Tailscale/WireGuard) для работы без монитора 24/7"
+        ],
+        "pl": [
+          "Zrób kopię zapasową oryginalnego systemu/firmware zanim cokolwiek zmienisz",
+          "Utwórz bootowalny pendrive z docelowym systemem (Debian/Ubuntu/Armbian/Proxmox) w Rufus lub BalenaEtcher",
+          "Uruchom z pendrive'a przez menu rozruchu/BIOS i zainstaluj docelowy system na wewnętrznym nośniku",
+          "Zaktualizuj sterowniki/firmware i sprawdź, czy sieć (oraz Wi-Fi, jeśli jest) działa poprawnie",
+          "Zainstaluj Docker/Portainer albo sam Proxmox VE, jeśli postawiłeś hypervisor, i skonfiguruj kontenery/VM",
+          "W BIOS włącz 'power on after power loss' i skonfiguruj zdalny dostęp (SSH, Tailscale/WireGuard) do pracy bez monitora 24/7"
+        ]
+      }
+    }
   },
   {
-    "id": "lenovo_m93p_4570t", "type": "minipc",
-    "name": "Lenovo M93p", "cpu": "i5-4570T","nm": 22, "cores": "2/4",
-   "core-tdp": 5,  "ram": 4, "ramtype": "DDR3", "rom": "", "romtype": "",
-    "powerW": 35, "powerAvg": 40, "powerMax": 65,
-    "score": 0, "antu": 0,  "benchmark": 10000, "sysbench": 3500,
-    "os": "Windows", "newos": "Proxmox",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Lenovo+M93p+i5-4570T"
+    "id": "lenovo_m93p_4570t",
+    "type": "minipc",
+    "name": "Lenovo M93p",
+    "cpu": "i5-4570T",
+    "nm": 22,
+    "cores": "2/4",
+    "core-tdp": 5,
+    "ram": 4,
+    "ramtype": "DDR3",
+    "rom": "",
+    "romtype": "",
+    "powerW": 35,
+    "powerAvg": 40,
+    "powerMax": 65,
+    "score": 0,
+    "antu": 0,
+    "benchmark": 10000,
+    "sysbench": 3500,
+    "os": "Windows",
+    "newos": "Proxmox",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Lenovo+M93p+i5-4570T",
+    "ratings": {
+      "os": 8,
+      "wifi": 3,
+      "battery": 0,
+      "usb": 8,
+      "price": 5,
+      "performance": 8.5
+    },
+    "description": {
+      "en": "The Lenovo M93p (i5-4570T) is a retired mini PC we repurpose into a low-power home server, running Proxmox instead of its original Windows.",
+      "ru": "Lenovo M93p (i5-4570T) — списанный мини ПК, который мы превращаем в экономичный домашний сервер, устанавливая Proxmox вместо родной Windows.",
+      "pl": "Lenovo M93p (i5-4570T) to wysłużony mini PC, który zamieniamy w oszczędny serwer domowy, instalując Proxmox zamiast oryginalnego Windows."
+    },
+    "pros": {
+      "en": [
+        "4 GB RAM is enough for several lightweight services at once",
+        "Runs mainline Proxmox, so most homelab guides just work"
+      ],
+      "ru": [
+        "4 ГБ ОЗУ хватает для нескольких лёгких сервисов одновременно",
+        "Работает на обычном Proxmox, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "4 GB RAM wystarcza na kilka lekkich usług jednocześnie",
+        "Działa na standardowym Proxmox, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "Higher power draw than the other boards here for continuous 24/7 duty",
+        "No usable built-in Wi-Fi — plan on Ethernet or a USB adapter"
+      ],
+      "ru": [
+        "Более высокое энергопотребление, чем у других плат в списке, при работе 24/7",
+        "Нет нормального встроенного Wi-Fi — рассчитывайте на Ethernet или USB-адаптер"
+      ],
+      "pl": [
+        "Wyższy pobór mocy niż inne płyty z listy przy pracy 24/7",
+        "Brak sensownego wbudowanego Wi-Fi — liczcie na Ethernet lub adapter USB"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up the original OS/firmware before touching anything",
+          "Create a bootable USB drive with the target OS (Debian/Ubuntu/Armbian/Proxmox) using Rufus or BalenaEtcher",
+          "Boot from the USB drive via the boot menu/BIOS and install the target OS to the internal storage",
+          "Update drivers/firmware and confirm the network interface (and Wi-Fi, if any) works correctly",
+          "Install Docker/Portainer, or Proxmox VE itself if you installed a hypervisor, and set up your containers/VMs",
+          "In BIOS, enable 'power on after power loss' and set up remote access (SSH, Tailscale/WireGuard) for headless 24/7 operation"
+        ],
+        "ru": [
+          "Сделайте резервную копию оригинальной ОС/прошивки прежде чем что-либо менять",
+          "Создайте загрузочную USB-флешку с целевой ОС (Debian/Ubuntu/Armbian/Proxmox) через Rufus или BalenaEtcher",
+          "Загрузитесь с флешки через boot-меню/BIOS и установите целевую ОС на встроенный накопитель",
+          "Обновите драйверы/прошивку и проверьте, что сеть (и Wi-Fi, если есть) работают корректно",
+          "Установите Docker/Portainer, либо сам Proxmox VE, если ставили гипервизор, и настройте контейнеры/ВМ",
+          "В BIOS включите 'включение после отключения питания' и настройте удалённый доступ (SSH, Tailscale/WireGuard) для работы без монитора 24/7"
+        ],
+        "pl": [
+          "Zrób kopię zapasową oryginalnego systemu/firmware zanim cokolwiek zmienisz",
+          "Utwórz bootowalny pendrive z docelowym systemem (Debian/Ubuntu/Armbian/Proxmox) w Rufus lub BalenaEtcher",
+          "Uruchom z pendrive'a przez menu rozruchu/BIOS i zainstaluj docelowy system na wewnętrznym nośniku",
+          "Zaktualizuj sterowniki/firmware i sprawdź, czy sieć (oraz Wi-Fi, jeśli jest) działa poprawnie",
+          "Zainstaluj Docker/Portainer albo sam Proxmox VE, jeśli postawiłeś hypervisor, i skonfiguruj kontenery/VM",
+          "W BIOS włącz 'power on after power loss' i skonfiguruj zdalny dostęp (SSH, Tailscale/WireGuard) do pracy bez monitora 24/7"
+        ]
+      }
+    }
   },
   {
-    "id": "lenovo_m83", "type": "minipc",
-    "name": "Lenovo M83", "cpu": "i3-4150T","nm": 22, "cores": "2/4",
-   "core-tdp": 5,  "ram": 4, "ramtype": "DDR3", "rom": "", "romtype": "",
-    "powerW": 35, "powerAvg": 40, "powerMax": 55,
-    "score": 0, "antu":0,  "benchmark": 9000, "sysbench": 3200,
-    "os": "Windows", "newos": "Ubuntu Server",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Lenovo+M83+i3-4150T"
+    "id": "lenovo_m83",
+    "type": "minipc",
+    "name": "Lenovo M83",
+    "cpu": "i3-4150T",
+    "nm": 22,
+    "cores": "2/4",
+    "core-tdp": 5,
+    "ram": 4,
+    "ramtype": "DDR3",
+    "rom": "",
+    "romtype": "",
+    "powerW": 35,
+    "powerAvg": 40,
+    "powerMax": 55,
+    "score": 0,
+    "antu": 0,
+    "benchmark": 9000,
+    "sysbench": 3200,
+    "os": "Windows",
+    "newos": "Ubuntu Server",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Lenovo+M83+i3-4150T",
+    "ratings": {
+      "os": 8,
+      "wifi": 3,
+      "battery": 0,
+      "usb": 8,
+      "price": 5,
+      "performance": 7.7
+    },
+    "description": {
+      "en": "The Lenovo M83 (i3-4150T) is a retired mini PC we repurpose into a low-power home server, running Ubuntu Server instead of its original Windows.",
+      "ru": "Lenovo M83 (i3-4150T) — списанный мини ПК, который мы превращаем в экономичный домашний сервер, устанавливая Ubuntu Server вместо родной Windows.",
+      "pl": "Lenovo M83 (i3-4150T) to wysłużony mini PC, który zamieniamy w oszczędny serwer domowy, instalując Ubuntu Server zamiast oryginalnego Windows."
+    },
+    "pros": {
+      "en": [
+        "4 GB RAM is enough for several lightweight services at once",
+        "Runs mainline Ubuntu Server, so most homelab guides just work"
+      ],
+      "ru": [
+        "4 ГБ ОЗУ хватает для нескольких лёгких сервисов одновременно",
+        "Работает на обычном Ubuntu Server, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "4 GB RAM wystarcza na kilka lekkich usług jednocześnie",
+        "Działa na standardowym Ubuntu Server, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "Higher power draw than the other boards here for continuous 24/7 duty",
+        "No usable built-in Wi-Fi — plan on Ethernet or a USB adapter"
+      ],
+      "ru": [
+        "Более высокое энергопотребление, чем у других плат в списке, при работе 24/7",
+        "Нет нормального встроенного Wi-Fi — рассчитывайте на Ethernet или USB-адаптер"
+      ],
+      "pl": [
+        "Wyższy pobór mocy niż inne płyty z listy przy pracy 24/7",
+        "Brak sensownego wbudowanego Wi-Fi — liczcie na Ethernet lub adapter USB"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up the original OS/firmware before touching anything",
+          "Create a bootable USB drive with the target OS (Debian/Ubuntu/Armbian/Proxmox) using Rufus or BalenaEtcher",
+          "Boot from the USB drive via the boot menu/BIOS and install the target OS to the internal storage",
+          "Update drivers/firmware and confirm the network interface (and Wi-Fi, if any) works correctly",
+          "Install Docker/Portainer, or Proxmox VE itself if you installed a hypervisor, and set up your containers/VMs",
+          "In BIOS, enable 'power on after power loss' and set up remote access (SSH, Tailscale/WireGuard) for headless 24/7 operation"
+        ],
+        "ru": [
+          "Сделайте резервную копию оригинальной ОС/прошивки прежде чем что-либо менять",
+          "Создайте загрузочную USB-флешку с целевой ОС (Debian/Ubuntu/Armbian/Proxmox) через Rufus или BalenaEtcher",
+          "Загрузитесь с флешки через boot-меню/BIOS и установите целевую ОС на встроенный накопитель",
+          "Обновите драйверы/прошивку и проверьте, что сеть (и Wi-Fi, если есть) работают корректно",
+          "Установите Docker/Portainer, либо сам Proxmox VE, если ставили гипервизор, и настройте контейнеры/ВМ",
+          "В BIOS включите 'включение после отключения питания' и настройте удалённый доступ (SSH, Tailscale/WireGuard) для работы без монитора 24/7"
+        ],
+        "pl": [
+          "Zrób kopię zapasową oryginalnego systemu/firmware zanim cokolwiek zmienisz",
+          "Utwórz bootowalny pendrive z docelowym systemem (Debian/Ubuntu/Armbian/Proxmox) w Rufus lub BalenaEtcher",
+          "Uruchom z pendrive'a przez menu rozruchu/BIOS i zainstaluj docelowy system na wewnętrznym nośniku",
+          "Zaktualizuj sterowniki/firmware i sprawdź, czy sieć (oraz Wi-Fi, jeśli jest) działa poprawnie",
+          "Zainstaluj Docker/Portainer albo sam Proxmox VE, jeśli postawiłeś hypervisor, i skonfiguruj kontenery/VM",
+          "W BIOS włącz 'power on after power loss' i skonfiguruj zdalny dostęp (SSH, Tailscale/WireGuard) do pracy bez monitora 24/7"
+        ]
+      }
+    }
   },
   {
-    "id": "dell_3050", "type": "minipc",
-    "name": "Dell 3050", "cpu": "i3-7100T","nm": 22, "cores": "2/4",
-   "core-tdp": 5,  "ram": 4, "ramtype": "DDR4", "rom": "", "romtype": "",
-    "powerW": 35, "powerAvg": 40, "powerMax": 55,
-    "score": 0, "antu": 0,  "benchmark": 12000, "sysbench": 4200,
-    "os": "Windows", "newos": "Proxmox",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Dell+3050+Micro+i3"
+    "id": "dell_3050",
+    "type": "minipc",
+    "name": "Dell 3050",
+    "cpu": "i3-7100T",
+    "nm": 22,
+    "cores": "2/4",
+    "core-tdp": 5,
+    "ram": 4,
+    "ramtype": "DDR4",
+    "rom": "",
+    "romtype": "",
+    "powerW": 35,
+    "powerAvg": 40,
+    "powerMax": 55,
+    "score": 0,
+    "antu": 0,
+    "benchmark": 12000,
+    "sysbench": 4200,
+    "os": "Windows",
+    "newos": "Proxmox",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Dell+3050+Micro+i3",
+    "ratings": {
+      "os": 8,
+      "wifi": 3,
+      "battery": 0,
+      "usb": 8,
+      "price": 5,
+      "performance": 10.0
+    },
+    "description": {
+      "en": "The Dell 3050 (i3-7100T) is a retired mini PC we repurpose into a low-power home server, running Proxmox instead of its original Windows.",
+      "ru": "Dell 3050 (i3-7100T) — списанный мини ПК, который мы превращаем в экономичный домашний сервер, устанавливая Proxmox вместо родной Windows.",
+      "pl": "Dell 3050 (i3-7100T) to wysłużony mini PC, który zamieniamy w oszczędny serwer domowy, instalując Proxmox zamiast oryginalnego Windows."
+    },
+    "pros": {
+      "en": [
+        "4 GB RAM is enough for several lightweight services at once",
+        "Runs mainline Proxmox, so most homelab guides just work"
+      ],
+      "ru": [
+        "4 ГБ ОЗУ хватает для нескольких лёгких сервисов одновременно",
+        "Работает на обычном Proxmox, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "4 GB RAM wystarcza na kilka lekkich usług jednocześnie",
+        "Działa na standardowym Proxmox, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "Higher power draw than the other boards here for continuous 24/7 duty",
+        "No usable built-in Wi-Fi — plan on Ethernet or a USB adapter"
+      ],
+      "ru": [
+        "Более высокое энергопотребление, чем у других плат в списке, при работе 24/7",
+        "Нет нормального встроенного Wi-Fi — рассчитывайте на Ethernet или USB-адаптер"
+      ],
+      "pl": [
+        "Wyższy pobór mocy niż inne płyty z listy przy pracy 24/7",
+        "Brak sensownego wbudowanego Wi-Fi — liczcie na Ethernet lub adapter USB"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up the original OS/firmware before touching anything",
+          "Create a bootable USB drive with the target OS (Debian/Ubuntu/Armbian/Proxmox) using Rufus or BalenaEtcher",
+          "Boot from the USB drive via the boot menu/BIOS and install the target OS to the internal storage",
+          "Update drivers/firmware and confirm the network interface (and Wi-Fi, if any) works correctly",
+          "Install Docker/Portainer, or Proxmox VE itself if you installed a hypervisor, and set up your containers/VMs",
+          "In BIOS, enable 'power on after power loss' and set up remote access (SSH, Tailscale/WireGuard) for headless 24/7 operation"
+        ],
+        "ru": [
+          "Сделайте резервную копию оригинальной ОС/прошивки прежде чем что-либо менять",
+          "Создайте загрузочную USB-флешку с целевой ОС (Debian/Ubuntu/Armbian/Proxmox) через Rufus или BalenaEtcher",
+          "Загрузитесь с флешки через boot-меню/BIOS и установите целевую ОС на встроенный накопитель",
+          "Обновите драйверы/прошивку и проверьте, что сеть (и Wi-Fi, если есть) работают корректно",
+          "Установите Docker/Portainer, либо сам Proxmox VE, если ставили гипервизор, и настройте контейнеры/ВМ",
+          "В BIOS включите 'включение после отключения питания' и настройте удалённый доступ (SSH, Tailscale/WireGuard) для работы без монитора 24/7"
+        ],
+        "pl": [
+          "Zrób kopię zapasową oryginalnego systemu/firmware zanim cokolwiek zmienisz",
+          "Utwórz bootowalny pendrive z docelowym systemem (Debian/Ubuntu/Armbian/Proxmox) w Rufus lub BalenaEtcher",
+          "Uruchom z pendrive'a przez menu rozruchu/BIOS i zainstaluj docelowy system na wewnętrznym nośniku",
+          "Zaktualizuj sterowniki/firmware i sprawdź, czy sieć (oraz Wi-Fi, jeśli jest) działa poprawnie",
+          "Zainstaluj Docker/Portainer albo sam Proxmox VE, jeśli postawiłeś hypervisor, i skonfiguruj kontenery/VM",
+          "W BIOS włącz 'power on after power loss' i skonfiguruj zdalny dostęp (SSH, Tailscale/WireGuard) do pracy bez monitora 24/7"
+        ]
+      }
+    }
   },
   {
-    "id": "cpixel_14", "type": "minipc",
-    "name": "Cpixel 14", "cpu": "N4020C","nm": 2, "cores": "2/2",
-   "core-tdp": 5,  "ram": 4, "ramtype": "DDR3", "rom": "128", "romtype": "SSD",
-    "powerW": 6, "powerAvg": 8, "powerMax": 15,
-    "score": 0, "antu": 0,  "benchmark": 4427, "sysbench": 1500,
-    "os": "Windows", "newos": "Linux",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=N4020C+Mini+PC"
+    "id": "cpixel_14",
+    "type": "minipc",
+    "name": "Cpixel 14",
+    "cpu": "N4020C",
+    "nm": 2,
+    "cores": "2/2",
+    "core-tdp": 5,
+    "ram": 4,
+    "ramtype": "DDR3",
+    "rom": "128",
+    "romtype": "SSD",
+    "powerW": 6,
+    "powerAvg": 8,
+    "powerMax": 15,
+    "score": 0,
+    "antu": 0,
+    "benchmark": 4427,
+    "sysbench": 1500,
+    "os": "Windows",
+    "newos": "Linux",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=N4020C+Mini+PC",
+    "ratings": {
+      "os": 7,
+      "wifi": 3,
+      "battery": 0,
+      "usb": 8,
+      "price": 5,
+      "performance": 4.3
+    },
+    "description": {
+      "en": "The Cpixel 14 (N4020C) is a retired mini PC we repurpose into a low-power home server, running Linux instead of its original Windows.",
+      "ru": "Cpixel 14 (N4020C) — списанный мини ПК, который мы превращаем в экономичный домашний сервер, устанавливая Linux вместо родной Windows.",
+      "pl": "Cpixel 14 (N4020C) to wysłużony mini PC, który zamieniamy w oszczędny serwer domowy, instalując Linux zamiast oryginalnego Windows."
+    },
+    "pros": {
+      "en": [
+        "4 GB RAM is enough for several lightweight services at once",
+        "Very low power draw — cheap to keep running 24/7",
+        "Fast SSD storage instead of a slow SD card",
+        "Runs mainline Linux, so most homelab guides just work"
+      ],
+      "ru": [
+        "4 ГБ ОЗУ хватает для нескольких лёгких сервисов одновременно",
+        "Очень низкое энергопотребление — дёшево держать включённым 24/7",
+        "Быстрое хранилище SSD вместо медленной SD-карты",
+        "Работает на обычном Linux, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "4 GB RAM wystarcza na kilka lekkich usług jednocześnie",
+        "Bardzo niski pobór mocy — tanio w pracy 24/7",
+        "Szybki nośnik SSD zamiast wolnej karty SD",
+        "Działa na standardowym Linux, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "No usable built-in Wi-Fi — plan on Ethernet or a USB adapter"
+      ],
+      "ru": [
+        "Нет нормального встроенного Wi-Fi — рассчитывайте на Ethernet или USB-адаптер"
+      ],
+      "pl": [
+        "Brak sensownego wbudowanego Wi-Fi — liczcie na Ethernet lub adapter USB"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up the original OS/firmware before touching anything",
+          "Create a bootable USB drive with the target OS (Debian/Ubuntu/Armbian/Proxmox) using Rufus or BalenaEtcher",
+          "Boot from the USB drive via the boot menu/BIOS and install the target OS to the internal storage",
+          "Update drivers/firmware and confirm the network interface (and Wi-Fi, if any) works correctly",
+          "Install Docker/Portainer, or Proxmox VE itself if you installed a hypervisor, and set up your containers/VMs",
+          "In BIOS, enable 'power on after power loss' and set up remote access (SSH, Tailscale/WireGuard) for headless 24/7 operation"
+        ],
+        "ru": [
+          "Сделайте резервную копию оригинальной ОС/прошивки прежде чем что-либо менять",
+          "Создайте загрузочную USB-флешку с целевой ОС (Debian/Ubuntu/Armbian/Proxmox) через Rufus или BalenaEtcher",
+          "Загрузитесь с флешки через boot-меню/BIOS и установите целевую ОС на встроенный накопитель",
+          "Обновите драйверы/прошивку и проверьте, что сеть (и Wi-Fi, если есть) работают корректно",
+          "Установите Docker/Portainer, либо сам Proxmox VE, если ставили гипервизор, и настройте контейнеры/ВМ",
+          "В BIOS включите 'включение после отключения питания' и настройте удалённый доступ (SSH, Tailscale/WireGuard) для работы без монитора 24/7"
+        ],
+        "pl": [
+          "Zrób kopię zapasową oryginalnego systemu/firmware zanim cokolwiek zmienisz",
+          "Utwórz bootowalny pendrive z docelowym systemem (Debian/Ubuntu/Armbian/Proxmox) w Rufus lub BalenaEtcher",
+          "Uruchom z pendrive'a przez menu rozruchu/BIOS i zainstaluj docelowy system na wewnętrznym nośniku",
+          "Zaktualizuj sterowniki/firmware i sprawdź, czy sieć (oraz Wi-Fi, jeśli jest) działa poprawnie",
+          "Zainstaluj Docker/Portainer albo sam Proxmox VE, jeśli postawiłeś hypervisor, i skonfiguruj kontenery/VM",
+          "W BIOS włącz 'power on after power loss' i skonfiguruj zdalny dostęp (SSH, Tailscale/WireGuard) do pracy bez monitora 24/7"
+        ]
+      }
+    }
   },
   {
-    "id": "lenovo_tp00081b", "type": "minipc",
-    "name": "Lenovo TP00081B", "cpu": "3865U","nm": 2, "cores": "2/2",
-   "core-tdp": 5,  "ram": 4, "ramtype": "DDR3", "rom": "128", "romtype": "SSD",
-    "powerW": 15, "powerAvg": 20, "powerMax": 35,
-    "score": 0, "antu": 49945,  "benchmark": 5425, "sysbench": 1800,
-    "os": "Windows", "newos": "Linux",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Lenovo+3865U"
+    "id": "lenovo_tp00081b",
+    "type": "minipc",
+    "name": "Lenovo TP00081B",
+    "cpu": "3865U",
+    "nm": 2,
+    "cores": "2/2",
+    "core-tdp": 5,
+    "ram": 4,
+    "ramtype": "DDR3",
+    "rom": "128",
+    "romtype": "SSD",
+    "powerW": 15,
+    "powerAvg": 20,
+    "powerMax": 35,
+    "score": 0,
+    "antu": 49945,
+    "benchmark": 5425,
+    "sysbench": 1800,
+    "os": "Windows",
+    "newos": "Linux",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Lenovo+3865U",
+    "ratings": {
+      "os": 7,
+      "wifi": 3,
+      "battery": 0,
+      "usb": 8,
+      "price": 5,
+      "performance": 5.0
+    },
+    "description": {
+      "en": "The Lenovo TP00081B (3865U) is a retired mini PC we repurpose into a low-power home server, running Linux instead of its original Windows.",
+      "ru": "Lenovo TP00081B (3865U) — списанный мини ПК, который мы превращаем в экономичный домашний сервер, устанавливая Linux вместо родной Windows.",
+      "pl": "Lenovo TP00081B (3865U) to wysłużony mini PC, który zamieniamy w oszczędny serwer domowy, instalując Linux zamiast oryginalnego Windows."
+    },
+    "pros": {
+      "en": [
+        "4 GB RAM is enough for several lightweight services at once",
+        "Fast SSD storage instead of a slow SD card",
+        "Runs mainline Linux, so most homelab guides just work"
+      ],
+      "ru": [
+        "4 ГБ ОЗУ хватает для нескольких лёгких сервисов одновременно",
+        "Быстрое хранилище SSD вместо медленной SD-карты",
+        "Работает на обычном Linux, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "4 GB RAM wystarcza na kilka lekkich usług jednocześnie",
+        "Szybki nośnik SSD zamiast wolnej karty SD",
+        "Działa na standardowym Linux, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "Higher power draw than the other boards here for continuous 24/7 duty",
+        "No usable built-in Wi-Fi — plan on Ethernet or a USB adapter"
+      ],
+      "ru": [
+        "Более высокое энергопотребление, чем у других плат в списке, при работе 24/7",
+        "Нет нормального встроенного Wi-Fi — рассчитывайте на Ethernet или USB-адаптер"
+      ],
+      "pl": [
+        "Wyższy pobór mocy niż inne płyty z listy przy pracy 24/7",
+        "Brak sensownego wbudowanego Wi-Fi — liczcie na Ethernet lub adapter USB"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up the original OS/firmware before touching anything",
+          "Create a bootable USB drive with the target OS (Debian/Ubuntu/Armbian/Proxmox) using Rufus or BalenaEtcher",
+          "Boot from the USB drive via the boot menu/BIOS and install the target OS to the internal storage",
+          "Update drivers/firmware and confirm the network interface (and Wi-Fi, if any) works correctly",
+          "Install Docker/Portainer, or Proxmox VE itself if you installed a hypervisor, and set up your containers/VMs",
+          "In BIOS, enable 'power on after power loss' and set up remote access (SSH, Tailscale/WireGuard) for headless 24/7 operation"
+        ],
+        "ru": [
+          "Сделайте резервную копию оригинальной ОС/прошивки прежде чем что-либо менять",
+          "Создайте загрузочную USB-флешку с целевой ОС (Debian/Ubuntu/Armbian/Proxmox) через Rufus или BalenaEtcher",
+          "Загрузитесь с флешки через boot-меню/BIOS и установите целевую ОС на встроенный накопитель",
+          "Обновите драйверы/прошивку и проверьте, что сеть (и Wi-Fi, если есть) работают корректно",
+          "Установите Docker/Portainer, либо сам Proxmox VE, если ставили гипервизор, и настройте контейнеры/ВМ",
+          "В BIOS включите 'включение после отключения питания' и настройте удалённый доступ (SSH, Tailscale/WireGuard) для работы без монитора 24/7"
+        ],
+        "pl": [
+          "Zrób kopię zapasową oryginalnego systemu/firmware zanim cokolwiek zmienisz",
+          "Utwórz bootowalny pendrive z docelowym systemem (Debian/Ubuntu/Armbian/Proxmox) w Rufus lub BalenaEtcher",
+          "Uruchom z pendrive'a przez menu rozruchu/BIOS i zainstaluj docelowy system na wewnętrznym nośniku",
+          "Zaktualizuj sterowniki/firmware i sprawdź, czy sieć (oraz Wi-Fi, jeśli jest) działa poprawnie",
+          "Zainstaluj Docker/Portainer albo sam Proxmox VE, jeśli postawiłeś hypervisor, i skonfiguruj kontenery/VM",
+          "W BIOS włącz 'power on after power loss' i skonfiguruj zdalny dostęp (SSH, Tailscale/WireGuard) do pracy bez monitora 24/7"
+        ]
+      }
+    }
   },
   {
-    "id": "intel_n100", "type": "minipc",
-    "name": "Intel N100 Mini PC", "cpu": "Intel N100","nm": 2, "cores": "4/4",
-   "core-tdp": 5,  "ram": 8, "ramtype": "DDR5", "rom": "256", "romtype": "NVMe",
-    "powerW": 6, "powerAvg": 10, "powerMax": 20,
-    "score": 0, "antu": 49945,  "benchmark": 11207, "sysbench": 5500,
-    "os": "Windows 11 Home", "newos": "Debian / Proxmox",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Intel+N100+Mini+PC"
+    "id": "intel_n100",
+    "type": "minipc",
+    "name": "Intel N100 Mini PC",
+    "cpu": "Intel N100",
+    "nm": 2,
+    "cores": "4/4",
+    "core-tdp": 5,
+    "ram": 8,
+    "ramtype": "DDR5",
+    "rom": "256",
+    "romtype": "NVMe",
+    "powerW": 6,
+    "powerAvg": 10,
+    "powerMax": 20,
+    "score": 0,
+    "antu": 49945,
+    "benchmark": 11207,
+    "sysbench": 5500,
+    "os": "Windows 11 Home",
+    "newos": "Debian / Proxmox",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Intel+N100+Mini+PC",
+    "ratings": {
+      "os": 8,
+      "wifi": 3,
+      "battery": 0,
+      "usb": 8,
+      "price": 5,
+      "performance": 9.4
+    },
+    "description": {
+      "en": "The Intel N100 Mini PC (Intel N100) is a retired mini PC we repurpose into a low-power home server, running Debian / Proxmox instead of its original Windows 11 Home.",
+      "ru": "Intel N100 Mini PC (Intel N100) — списанный мини ПК, который мы превращаем в экономичный домашний сервер, устанавливая Debian / Proxmox вместо родной Windows 11 Home.",
+      "pl": "Intel N100 Mini PC (Intel N100) to wysłużony mini PC, który zamieniamy w oszczędny serwer domowy, instalując Debian / Proxmox zamiast oryginalnego Windows 11 Home."
+    },
+    "pros": {
+      "en": [
+        "8 GB RAM is enough for several lightweight services at once",
+        "Fast NVMe storage instead of a slow SD card",
+        "Runs mainline Debian / Proxmox, so most homelab guides just work"
+      ],
+      "ru": [
+        "8 ГБ ОЗУ хватает для нескольких лёгких сервисов одновременно",
+        "Быстрое хранилище NVMe вместо медленной SD-карты",
+        "Работает на обычном Debian / Proxmox, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "8 GB RAM wystarcza na kilka lekkich usług jednocześnie",
+        "Szybki nośnik NVMe zamiast wolnej karty SD",
+        "Działa na standardowym Debian / Proxmox, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "No usable built-in Wi-Fi — plan on Ethernet or a USB adapter"
+      ],
+      "ru": [
+        "Нет нормального встроенного Wi-Fi — рассчитывайте на Ethernet или USB-адаптер"
+      ],
+      "pl": [
+        "Brak sensownego wbudowanego Wi-Fi — liczcie na Ethernet lub adapter USB"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up the original OS/firmware before touching anything",
+          "Create a bootable USB drive with the target OS (Debian/Ubuntu/Armbian/Proxmox) using Rufus or BalenaEtcher",
+          "Boot from the USB drive via the boot menu/BIOS and install the target OS to the internal storage",
+          "Update drivers/firmware and confirm the network interface (and Wi-Fi, if any) works correctly",
+          "Install Docker/Portainer, or Proxmox VE itself if you installed a hypervisor, and set up your containers/VMs",
+          "In BIOS, enable 'power on after power loss' and set up remote access (SSH, Tailscale/WireGuard) for headless 24/7 operation"
+        ],
+        "ru": [
+          "Сделайте резервную копию оригинальной ОС/прошивки прежде чем что-либо менять",
+          "Создайте загрузочную USB-флешку с целевой ОС (Debian/Ubuntu/Armbian/Proxmox) через Rufus или BalenaEtcher",
+          "Загрузитесь с флешки через boot-меню/BIOS и установите целевую ОС на встроенный накопитель",
+          "Обновите драйверы/прошивку и проверьте, что сеть (и Wi-Fi, если есть) работают корректно",
+          "Установите Docker/Portainer, либо сам Proxmox VE, если ставили гипервизор, и настройте контейнеры/ВМ",
+          "В BIOS включите 'включение после отключения питания' и настройте удалённый доступ (SSH, Tailscale/WireGuard) для работы без монитора 24/7"
+        ],
+        "pl": [
+          "Zrób kopię zapasową oryginalnego systemu/firmware zanim cokolwiek zmienisz",
+          "Utwórz bootowalny pendrive z docelowym systemem (Debian/Ubuntu/Armbian/Proxmox) w Rufus lub BalenaEtcher",
+          "Uruchom z pendrive'a przez menu rozruchu/BIOS i zainstaluj docelowy system na wewnętrznym nośniku",
+          "Zaktualizuj sterowniki/firmware i sprawdź, czy sieć (oraz Wi-Fi, jeśli jest) działa poprawnie",
+          "Zainstaluj Docker/Portainer albo sam Proxmox VE, jeśli postawiłeś hypervisor, i skonfiguruj kontenery/VM",
+          "W BIOS włącz 'power on after power loss' i skonfiguruj zdalny dostęp (SSH, Tailscale/WireGuard) do pracy bez monitora 24/7"
+        ]
+      }
+    }
   },
   {
-    "id": "lenovo_tab", "type": "tablet",
-    "name": "Lenovo TAB Server", "cpu": "Intel 6100U","nm": 2, "cores": "2/4",
-   "core-tdp": 5,  "ram": 4, "ramtype": "DDR3", "rom": "128", "romtype": "SSD",
-    "powerW": 10, "powerAvg": 15, "powerMax": 25,
-    "score": 0, "antu": 49945, "benchmark": 8000, "sysbench": 2500,
-    "os": "Windows", "newos": "Linux",
-    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Lenovo+6100U"
+    "id": "lenovo_tab",
+    "type": "tablet",
+    "name": "Lenovo TAB Server",
+    "cpu": "Intel 6100U",
+    "nm": 2,
+    "cores": "2/4",
+    "core-tdp": 5,
+    "ram": 4,
+    "ramtype": "DDR3",
+    "rom": "128",
+    "romtype": "SSD",
+    "powerW": 10,
+    "powerAvg": 15,
+    "powerMax": 25,
+    "score": 0,
+    "antu": 49945,
+    "benchmark": 8000,
+    "sysbench": 2500,
+    "os": "Windows",
+    "newos": "Linux",
+    "ebay": "https://www.ebay.com/sch/i.html?_nkw=Lenovo+6100U",
+    "ratings": {
+      "os": 7,
+      "wifi": 7,
+      "battery": 7,
+      "usb": 5,
+      "price": 5,
+      "performance": 6
+    },
+    "description": {
+      "en": "The Lenovo TAB Server (Intel 6100U) is a retired tablet we repurpose into a low-power home server, running Linux instead of its original Windows.",
+      "ru": "Lenovo TAB Server (Intel 6100U) — списанный планшет, который мы превращаем в экономичный домашний сервер, устанавливая Linux вместо родной Windows.",
+      "pl": "Lenovo TAB Server (Intel 6100U) to wysłużony tablet, który zamieniamy w oszczędny serwer domowy, instalując Linux zamiast oryginalnego Windows."
+    },
+    "pros": {
+      "en": [
+        "4 GB RAM is enough for several lightweight services at once",
+        "Fast SSD storage instead of a slow SD card",
+        "Runs mainline Linux, so most homelab guides just work"
+      ],
+      "ru": [
+        "4 ГБ ОЗУ хватает для нескольких лёгких сервисов одновременно",
+        "Быстрое хранилище SSD вместо медленной SD-карты",
+        "Работает на обычном Linux, поэтому большинство инструкций для homelab подходят без изменений"
+      ],
+      "pl": [
+        "4 GB RAM wystarcza na kilka lekkich usług jednocześnie",
+        "Szybki nośnik SSD zamiast wolnej karty SD",
+        "Działa na standardowym Linux, więc większość poradników homelab pasuje bez zmian"
+      ]
+    },
+    "cons": {
+      "en": [
+        "Limited official documentation for this exact conversion, expect some trial and error"
+      ],
+      "ru": [
+        "Мало официальной документации именно по этой переделке, будьте готовы к экспериментам"
+      ],
+      "pl": [
+        "Mało oficjalnej dokumentacji dla akurat tej przeróbki, spodziewajcie się prób i błędów"
+      ]
+    },
+    "instructions": {
+      "youtube": "",
+      "steps": {
+        "en": [
+          "Back up your data, then unlock the bootloader in developer options",
+          "Root the device (Magisk) or flash a custom recovery (TWRP) for your exact model",
+          "Install a Linux layer — Linux Deploy, UserLAnd, or a native port such as postmarketOS/Ubuntu Touch if one exists for this device",
+          "Connect over SSH, set a static IP or reserve one on your router",
+          "Install Docker/Portainer (or your preferred stack) inside the Linux environment",
+          "Set up a boot script (Termux:Boot or an init.d entry) so services start automatically after a power cycle"
+        ],
+        "ru": [
+          "Сделайте резервную копию данных, затем разблокируйте загрузчик в настройках разработчика",
+          "Получите root (Magisk) или прошейте кастомный recovery (TWRP) для вашей точной модели",
+          "Установите Linux-слой — Linux Deploy, UserLAnd или нативный порт вроде postmarketOS/Ubuntu Touch, если он есть для устройства",
+          "Подключитесь по SSH, задайте статический IP или зарезервируйте его на роутере",
+          "Установите Docker/Portainer (или другой стек) внутри Linux-окружения",
+          "Настройте скрипт автозапуска (Termux:Boot или запись в init.d), чтобы сервисы поднимались после перезагрузки"
+        ],
+        "pl": [
+          "Zrób kopię zapasową danych, następnie odblokuj bootloader w opcjach dla programistów",
+          "Zrootuj urządzenie (Magisk) lub wgraj custom recovery (TWRP) dla dokładnie tego modelu",
+          "Zainstaluj warstwę Linuksa — Linux Deploy, UserLAnd lub natywny port typu postmarketOS/Ubuntu Touch, jeśli istnieje dla tego urządzenia",
+          "Połącz się przez SSH, ustaw statyczny IP lub zarezerwuj go na routerze",
+          "Zainstaluj Docker/Portainer (lub inny wybrany stack) w środowisku Linux",
+          "Skonfiguruj skrypt startowy (Termux:Boot lub wpis w init.d), aby usługi startowały automatycznie po restarcie zasilania"
+        ]
+      }
+    }
   }
 ]

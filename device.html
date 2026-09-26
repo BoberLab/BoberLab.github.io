@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">BoberLab | Device</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/i18next@23.7.11/i18next.min.js"></script>
+</head>
+<body>
+
+    <div class="header-box">
+        <div>
+            <div class="site-title" id="site-title"></div>
+            <h1 id="device-name">…</h1>
+        </div>
+        <div class="lang-btns">
+            <button data-lang="en" onclick="changeLang('en')">EN</button>
+            <button data-lang="ru" onclick="changeLang('ru')">RU</button>
+            <button data-lang="pl" onclick="changeLang('pl')">PL</button>
+        </div>
+    </div>
+
+    <nav class="breadcrumb">
+        <a href="index.html" id="crumb-all"></a>
+        <span class="sep">›</span>
+        <a href="#" id="crumb-type"></a>
+        <span class="sep">›</span>
+        <span id="crumb-name"></span>
+    </nav>
+
+    <div class="device-hero">
+        <div class="card gallery-card">
+            <div class="gallery-main">
+                <img id="gallery-main-img" src="" alt="" style="display:none;">
+                <div class="gallery-empty" id="gallery-empty" style="display:none;"></div>
+            </div>
+            <div class="gallery-thumbs" id="gallery-thumbs"></div>
+        </div>
+        <div class="card rating-card">
+            <h3 id="rating-title"></h3>
+            <div class="hexagon-wrap" id="hexagon-wrap"></div>
+        </div>
+    </div>
+
+    <div class="pros-cons">
+        <div class="card pros">
+            <h3 id="pros-title"></h3>
+            <ul id="pros-list"></ul>
+        </div>
+        <div class="card cons">
+            <h3 id="cons-title"></h3>
+            <ul id="cons-list"></ul>
+        </div>
+    </div>
+
+    <div class="card section-card">
+        <h3 id="specs-title"></h3>
+        <table class="specs-table" id="specs-table"></table>
+    </div>
+
+    <div class="card section-card">
+        <h3 id="description-title"></h3>
+        <p id="description-text"></p>
+    </div>
+
+    <div class="card section-card">
+        <h3 id="instructions-title"></h3>
+        <div class="instructions-video" id="instructions-video" style="display:none;"></div>
+        <ol class="instructions-steps" id="instructions-steps"></ol>
+    </div>
+
+    <p><a href="index.html" id="back-link"></a></p>
+
+    <footer class="site-footer">
+        <p id="footer-project"></p>
+        <p id="footer-disclaimer"></p>
+    </footer>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script src="i18n.js"></script>
+    <script src="device.js"></script>
+</body>
+</html>
