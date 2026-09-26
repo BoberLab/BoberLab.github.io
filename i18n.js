@@ -42,6 +42,8 @@ const i18nResources = {
       "section-instructions": "Instructions",
       "gallery-empty": "No photos yet for this device.",
       "back-link": "← Back to all devices",
+      "theme-toggle-dark": "Dark",
+      "theme-toggle-light": "Light",
       "footer-disclaimer": "BoberLab is an educational hobby project. Everything shown here is provided \"as is\" for informational purposes only. Any modification, rooting, flashing or re-purposing of a device is done entirely at your own risk — we take no responsibility for bricked devices, data loss or any other damage. Always keep backups.",
       "footer-project": "Built for homelab enthusiasts and beginner tinkerers who want a cheap way in."
     }
@@ -87,6 +89,8 @@ const i18nResources = {
       "section-instructions": "Инструкция",
       "gallery-empty": "Пока нет фото этого устройства.",
       "back-link": "← Ко всем устройствам",
+      "theme-toggle-dark": "Тёмная",
+      "theme-toggle-light": "Светлая",
       "footer-disclaimer": "BoberLab — образовательный любительский проект. Вся информация предоставлена «как есть» исключительно в ознакомительных целях. Любая модификация, рут, перепрошивка или переделка устройства выполняется исключительно на свой страх и риск — мы не несём ответственности за «окирпиченные» устройства, потерю данных или любой другой ущерб. Всегда делайте резервные копии.",
       "footer-project": "Сделано для энтузиастов homelab и начинающих программистов, которые ищут дешёвый вход в тему."
     }
@@ -132,6 +136,8 @@ const i18nResources = {
       "section-instructions": "Instrukcja",
       "gallery-empty": "Brak jeszcze zdjęć tego urządzenia.",
       "back-link": "← Wróć do wszystkich urządzeń",
+      "theme-toggle-dark": "Ciemny",
+      "theme-toggle-light": "Jasny",
       "footer-disclaimer": "BoberLab to hobbystyczny projekt edukacyjny. Wszystkie informacje podane są „tak jak są” wyłącznie w celach informacyjnych. Jakiekolwiek modyfikacje, rootowanie, flashowanie lub przeróbka urządzenia odbywają się wyłącznie na własne ryzyko — nie ponosimy odpowiedzialności za \"zceglone\" urządzenia, utratę danych ani żadne inne szkody. Zawsze rób kopie zapasowe.",
       "footer-project": "Stworzone dla pasjonatów homelabu i początkujących programistów szukających taniego wejścia w temat."
     }
@@ -139,11 +145,54 @@ const i18nResources = {
 };
 
 const SUPPORTED_LANGS = ['en', 'ru', 'pl'];
+const THEME_STORAGE_KEY = 'boberlab-theme';
 
 function detectDefaultLang() {
   const browserLang = navigator.language || navigator.userLanguage || '';
   const short = browserLang.split('-')[0];
   return SUPPORTED_LANGS.includes(short) ? short : 'en';
+}
+
+// --- Theme (light/dark) --------------------------------------------------
+// The <html> element already gets a best-guess data-theme attribute from an
+// inline script in <head> (before this file even loads, to avoid a flash of
+// the wrong theme). Everything here just keeps the toggle button in sync and
+// lets the visitor override the guess, remembered per-browser via localStorage.
+
+function getCurrentTheme() {
+  return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  updateThemeButton();
+}
+
+function updateThemeButton() {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn || !window.i18next || !i18next.isInitialized) return;
+  const theme = getCurrentTheme();
+  btn.innerText = theme === 'dark'
+    ? ('☀️ ' + i18next.t('theme-toggle-light'))
+    : ('🌙 ' + i18next.t('theme-toggle-dark'));
+}
+
+function toggleTheme() {
+  const next = getCurrentTheme() === 'dark' ? 'light' : 'dark';
+  try { localStorage.setItem(THEME_STORAGE_KEY, next); } catch (e) { /* storage unavailable, theme just won't persist */ }
+  applyTheme(next);
+}
+
+// If the visitor hasn't explicitly chosen a theme on this site, keep following
+// their OS/browser theme live in case they flip it while the page is open.
+if (window.matchMedia) {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    let stored = null;
+    try { stored = localStorage.getItem(THEME_STORAGE_KEY); } catch (err) { /* ignore */ }
+    if (stored !== 'dark' && stored !== 'light') {
+      applyTheme(e.matches ? 'dark' : 'light');
+    }
+  });
 }
 
 function initI18n(onReady) {
@@ -152,6 +201,7 @@ function initI18n(onReady) {
     document.querySelectorAll('.lang-btns button').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === i18next.language);
     });
+    updateThemeButton();
   });
 }
 
@@ -160,6 +210,7 @@ function changeLang(lang) {
     document.querySelectorAll('.lang-btns button').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
+    updateThemeButton();
     document.dispatchEvent(new CustomEvent('langchange'));
   });
 }

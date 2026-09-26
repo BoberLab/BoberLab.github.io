@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BoberLab | Home Lab Devices</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+      // Runs before the page paints: pick a theme (saved choice, else OS/browser
+      // preference) so there's no flash of the wrong theme on load.
+      (function () {
+        try {
+          var t = localStorage.getItem('boberlab-theme');
+          if (t !== 'dark' && t !== 'light') {
+            t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+          }
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) { /* localStorage/matchMedia unavailable, default light stays */ }
+      })();
+    </script>
     <script src="https://unpkg.com/i18next@23.7.11/i18next.min.js"></script>
 </head>
 <body>
@@ -14,10 +27,13 @@
             <div class="site-title" id="site-title"></div>
             <h1 id="main-title">BoberLab</h1>
         </div>
-        <div class="lang-btns">
-            <button data-lang="en" onclick="changeLang('en')">EN</button>
-            <button data-lang="ru" onclick="changeLang('ru')">RU</button>
-            <button data-lang="pl" onclick="changeLang('pl')">PL</button>
+        <div class="nav-controls">
+            <div class="lang-btns">
+                <button data-lang="en" onclick="changeLang('en')">EN</button>
+                <button data-lang="ru" onclick="changeLang('ru')">RU</button>
+                <button data-lang="pl" onclick="changeLang('pl')">PL</button>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()"></button>
         </div>
     </div>
 
