@@ -23,7 +23,7 @@ body {
   background-color: var(--bg);
   color: var(--ink);
   margin: 0;
-  max-width: 1200px;
+  max-width: 1900px;
   margin: 0 auto;
 }
 body > * { padding-left: 20px; padding-right: 20px; }
@@ -97,6 +97,12 @@ td { border-bottom: 1px solid #eee; padding: 12px; font-size: 14px; }
 .device-link:hover { color: var(--accent); text-decoration: underline; }
 
 .buy-btn { color: var(--accent); text-decoration: none; font-weight: bold; }
+
+/* On narrow screens, drop the columns that matter least for a quick glance:
+   cores/threads, CPU TDP, process node, and both power columns. */
+@media (max-width: 768px) {
+  .col-cores, .col-tdp, .col-nm, .col-power { display: none; }
+}
 
 footer.site-footer {
   margin: 30px 0 10px;

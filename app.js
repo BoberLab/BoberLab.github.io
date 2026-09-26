@@ -68,14 +68,14 @@ function renderTable() {
 
         tr.innerHTML = `
             <td><a class="device-link" href="device.html?id=${encodeURIComponent(d.id)}">${d.name}</a><br><small>${d.cpu}</small></td>
-            <td><b>${d.cores}</b></td>
-            <td>${d['core-tdp'] ? d['core-tdp'] + 'W' : '-'}</td>
-            <td>${d.nm ? d.nm + 'nm' : '-'}</td>
+            <td class="col-cores"><b>${d.cores}</b></td>
+            <td class="col-tdp">${d['core-tdp'] ? d['core-tdp'] + 'W' : '-'}</td>
+            <td class="col-nm">${d.nm ? d.nm + 'nm' : '-'}</td>
             <td>${ramString}</td>
             <td>${romString}</td>
             <td>${d.os} ➔ <b>${d.newos}</b></td>
-            <td>${d.powerW}W / ${d.powerMax}W</td>
-            <td><b>${newPowerIdle}W / ${newPowerMax}W</b></td>
+            <td class="col-power">${d.powerW}W / ${d.powerMax}W</td>
+            <td class="col-power"><b>${newPowerIdle}W / ${newPowerMax}W</b></td>
             <td><b>${d.antu || '-'}</b></td>
             <td>${d.benchmark}</td>
             <td><b>${d.sysbench || '-'}</b></td>
