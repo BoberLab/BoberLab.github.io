@@ -12,27 +12,36 @@ initI18n(() => {
     loadDevice();
 });
 document.addEventListener('langchange', () => {
-    if (currentDevice) renderLocalizedContent(currentDevice);
-    updateStaticUI();
+    if (currentDevice) {
+        renderBreadcrumb(currentDevice);
+        renderLocalizedContent(currentDevice);
+        refreshDynamicLabels();
+    }
+});
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
 });
 
 async function loadDevice() {
     const id = getDeviceIdFromUrl();
-    const response = await fetch('devices.json');
-    const devices = await response.json();
+    let devices = [];
+    try {
+        const response = await fetch('data/devices.json');
+        devices = await response.json();
+    } catch (err) {
+        console.error('Could not load devices.json:', err);
+    }
     const device = devices.find(d => d.id === id);
 
     if (!device) {
-        document.getElementById('device-name').innerText = 'Device not found';
-        updateStaticUI();
+        document.getElementById('device-name').textContent = 'Device not found';
         return;
     }
 
     currentDevice = device;
-    document.getElementById('page-title').innerText = `BoberLab | ${device.name}`;
-    document.getElementById('device-name').innerText = device.name;
+    document.title = `BoberLab | ${device.name}`;
+    document.getElementById('device-name').textContent = device.name;
 
-    updateStaticUI();
     renderBreadcrumb(device);
     renderHexagon(device.ratings || {});
     renderLocalizedContent(device);
@@ -42,19 +51,19 @@ async function loadDevice() {
 
 function renderBreadcrumb(device) {
     const crumbType = document.getElementById('crumb-type');
-    crumbType.innerText = typeLabel(device.type);
-    crumbType.href = `index.html?type=${encodeURIComponent(device.type)}`;
-    document.getElementById('crumb-name').innerText = device.name;
+    crumbType.textContent = i18next.t('cat-' + device.type, device.type);
+    crumbType.href = `devices.html?type=${encodeURIComponent(device.type)}`;
+    document.getElementById('crumb-name').textContent = device.name;
 }
 
 function renderLocalizedContent(device) {
-    document.getElementById('description-text').innerText = localized(device.description);
+    document.getElementById('description-text').textContent = localized(device.description);
 
     const prosList = document.getElementById('pros-list');
     prosList.innerHTML = '';
     localizedList(device.pros).forEach(text => {
         const li = document.createElement('li');
-        li.innerText = text;
+        li.textContent = text;
         prosList.appendChild(li);
     });
 
@@ -62,7 +71,7 @@ function renderLocalizedContent(device) {
     consList.innerHTML = '';
     localizedList(device.cons).forEach(text => {
         const li = document.createElement('li');
-        li.innerText = text;
+        li.textContent = text;
         consList.appendChild(li);
     });
 
@@ -71,7 +80,7 @@ function renderLocalizedContent(device) {
     const steps = device.instructions ? localizedList(device.instructions.steps) : [];
     steps.forEach(text => {
         const li = document.createElement('li');
-        li.innerText = text;
+        li.textContent = text;
         stepsEl.appendChild(li);
     });
 
@@ -109,7 +118,7 @@ function renderSpecs(d) {
     ];
     const table = document.getElementById('specs-table');
     table.innerHTML = rows.map(([key, val]) =>
-        `<tr><td data-i18n-key="${key}">${i18next.t(key)}</td><td>${val}</td></tr>`
+        `<tr><td data-i18n="${key}">${i18next.t(key)}</td><td>${val}</td></tr>`
     ).join('');
 }
 
@@ -155,6 +164,8 @@ async function renderGallery(device) {
     galleryImages.forEach((src, idx) => {
         const t = document.createElement('img');
         t.src = src;
+        t.alt = `${device.name} ${idx + 1}`;
+        t.loading = 'lazy';
         t.className = idx === 0 ? 'active' : '';
         t.onclick = () => showMainImage(idx);
         thumbs.appendChild(t);
@@ -180,14 +191,16 @@ function closeLightbox() {
 }
 
 // --- Hexagon rating chart ------------------------------------------------
+// Colors come from CSS classes (.hex-grid / .hex-label / .hex-area), so the
+// chart follows the light/dark theme automatically.
 function renderHexagon(ratings) {
     const size = 280;
     const cx = size / 2, cy = size / 2, r = 100;
     const n = AXES.length;
     const angleFor = i => -Math.PI / 2 + i * (2 * Math.PI / n);
 
-    const point = (value, radius) => {
-        const a = angleFor(value);
+    const point = (i, radius) => {
+        const a = angleFor(i);
         return [cx + radius * Math.cos(a), cy + radius * Math.sin(a)];
     };
 
@@ -195,7 +208,7 @@ function renderHexagon(ratings) {
     let gridPolys = '';
     [0.25, 0.5, 0.75, 1].forEach(frac => {
         const pts = AXES.map((_, i) => point(i, r * frac).join(',')).join(' ');
-        gridPolys += `<polygon points="${pts}" fill="none" stroke="#d0d7de" stroke-width="1"/>`;
+        gridPolys += `<polygon class="hex-grid" points="${pts}"/>`;
     });
 
     // Axis spokes + labels
@@ -203,9 +216,9 @@ function renderHexagon(ratings) {
     let labels = '';
     AXES.forEach((axis, i) => {
         const [x, y] = point(i, r);
-        spokes += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#d0d7de" stroke-width="1"/>`;
+        spokes += `<line class="hex-grid" x1="${cx}" y1="${cy}" x2="${x}" y2="${y}"/>`;
         const [lx, ly] = point(i, r + 26);
-        labels += `<text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#57606a" data-axis-label="${axis}">${i18next.t('axis-' + axis)}</text>`;
+        labels += `<text class="hex-label" x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" data-axis-label="${axis}">${i18next.t('axis-' + axis)}</text>`;
     });
 
     // Value polygon
@@ -215,37 +228,22 @@ function renderHexagon(ratings) {
         return `${x},${y}`;
     }).join(' ');
 
-    const svg = `
-    <svg viewBox="0 0 ${size} ${size}" width="100%" height="auto">
+    document.getElementById('hexagon-wrap').innerHTML = `
+    <svg viewBox="0 0 ${size} ${size}" width="100%" role="img" aria-label="${i18next.t('section-rating')}">
         ${gridPolys}
         ${spokes}
-        <polygon points="${valuePts}" fill="#0969da33" stroke="#0969da" stroke-width="2"/>
+        <polygon class="hex-area" points="${valuePts}"/>
         ${labels}
     </svg>`;
-    document.getElementById('hexagon-wrap').innerHTML = svg;
 }
 
-function updateStaticUI() {
-    document.getElementById('site-title').innerText = i18next.t('site-title');
-    document.getElementById('crumb-all').innerText = i18next.t('breadcrumb-all');
-    document.getElementById('rating-title').innerText = i18next.t('section-rating');
-    document.getElementById('pros-title').innerText = i18next.t('section-pros');
-    document.getElementById('cons-title').innerText = i18next.t('section-cons');
-    document.getElementById('specs-title').innerText = i18next.t('section-specs');
-    document.getElementById('description-title').innerText = i18next.t('section-description');
-    document.getElementById('instructions-title').innerText = i18next.t('section-instructions');
-    document.getElementById('gallery-empty').innerText = i18next.t('gallery-empty');
-    document.getElementById('back-link').innerText = i18next.t('back-link');
-    document.getElementById('footer-project').innerText = i18next.t('footer-project');
-    document.getElementById('footer-disclaimer').innerText = i18next.t('footer-disclaimer');
-
-    if (currentDevice) {
-        renderBreadcrumb(currentDevice);
-        document.querySelectorAll('#specs-table td[data-i18n-key]').forEach(td => {
-            td.innerText = i18next.t(td.dataset.i18nKey);
-        });
-        document.querySelectorAll('[data-axis-label]').forEach(el => {
-            el.textContent = i18next.t('axis-' + el.dataset.axisLabel);
-        });
-    }
+// Labels generated by JS (spec rows, chart axes) aren't covered by the static
+// data-i18n pass, so refresh them after a language change.
+function refreshDynamicLabels() {
+    document.querySelectorAll('#specs-table td[data-i18n]').forEach(td => {
+        td.textContent = i18next.t(td.dataset.i18n);
+    });
+    document.querySelectorAll('[data-axis-label]').forEach(el => {
+        el.textContent = i18next.t('axis-' + el.dataset.axisLabel);
+    });
 }

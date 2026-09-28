@@ -1,0 +1,67 @@
+{
+  "items": [
+    {
+      "id": "ugreen-15534",
+      "category": "hub",
+      "brand": "UGREEN",
+      "name": "UGREEN 15534 — USB-C Hub 10-in-1",
+      "tags": [
+        "10-in-1",
+        "2×HDMI 4K/8K",
+        "USB 3.0",
+        "PD 100W",
+        "Ethernet"
+      ],
+      "description": {
+        "en": "A 10-in-1 USB-C hub with two HDMI outputs (4K/8K), USB 3.0, 100 W Power Delivery and wired Ethernet. One cable can give a phone, tablet or single-port mini PC wired networking, extra peripherals and a screen whenever you need one.",
+        "ru": "Хаб USB-C 10-в-1 с двумя выходами HDMI (4K/8K), USB 3.0, зарядкой Power Delivery 100 Вт и проводным Ethernet. Одним кабелем телефон, планшет или мини-ПК с единственным портом получают проводную сеть, дополнительную периферию и экран, когда он нужен.",
+        "pl": "Hub USB-C 10 w 1 z dwoma wyjściami HDMI (4K/8K), USB 3.0, ładowaniem Power Delivery 100 W i przewodowym Ethernetem. Jednym kablem telefon, tablet lub mini PC z jednym portem dostaje sieć przewodową, dodatkowe peryferia i ekran, gdy jest potrzebny."
+      },
+      "markets": [
+        {
+          "name": "Allegro",
+          "url": "https://allegro.pl/listing?string=UGREEN%2015534"
+        },
+        {
+          "name": "Amazon",
+          "url": "https://www.amazon.com/s?k=UGREEN+15534"
+        },
+        {
+          "name": "eBay",
+          "url": "https://www.ebay.com/sch/i.html?_nkw=UGREEN+15534"
+        }
+      ]
+    },
+    {
+      "id": "ugreen-60554",
+      "category": "hub",
+      "brand": "UGREEN",
+      "name": "UGREEN 60554 — Hub 5-in-1 USB 3.0, Gigabit Ethernet, USB-C PD",
+      "tags": [
+        "5-in-1",
+        "USB 3.0",
+        "Gigabit Ethernet",
+        "USB-C PD"
+      ],
+      "description": {
+        "en": "A compact 5-in-1 hub with USB 3.0 ports, Gigabit Ethernet and a USB-C PD port. A simple, cheap way to give a phone or tablet a wired network connection and a few USB ports for a drive or adapter, with charging on the side.",
+        "ru": "Компактный хаб 5-в-1 с портами USB 3.0, Gigabit Ethernet и USB-C PD. Простой и недорогой способ дать телефону или планшету проводную сеть и несколько USB-портов для диска или адаптера, да ещё и с зарядкой.",
+        "pl": "Kompaktowy hub 5 w 1 z portami USB 3.0, Gigabit Ethernet i portem USB-C PD. Prosty, tani sposób, by dać telefonowi lub tabletowi połączenie przewodowe i kilka portów USB na dysk lub adapter, z ładowaniem przy okazji."
+      },
+      "markets": [
+        {
+          "name": "Allegro",
+          "url": "https://allegro.pl/listing?string=UGREEN%2060554"
+        },
+        {
+          "name": "Amazon",
+          "url": "https://www.amazon.com/s?k=UGREEN+60554"
+        },
+        {
+          "name": "eBay",
+          "url": "https://www.ebay.com/sch/i.html?_nkw=UGREEN+60554"
+        }
+      ]
+    }
+  ]
+}

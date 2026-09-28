@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoberLab | Devices</title>
+    <meta name="description" content="Compare old phones, mini PCs, TV boxes and tablets that can be turned into low-power home servers.">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+      // Runs before the page paints: pick a theme (saved choice, else OS/browser
+      // preference) so there's no flash of the wrong theme on load.
+      (function () {
+        try {
+          var t = localStorage.getItem('boberlab-theme');
+          if (t !== 'dark' && t !== 'light') {
+            t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+          }
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) { /* default light stays */ }
+      })();
+    </script>
+    <script src="https://unpkg.com/i18next@23.7.11/i18next.min.js"></script>
+</head>
+<body data-page="devices">
+    <div id="site-header"></div>
+
+    <main class="container">
+        <h1 class="page-title" id="page-heading"></h1>
+
+        <div class="controls">
+            <span class="filters-label" data-i18n="filters-label"></span>
+            <div class="filters" id="filters"></div>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th onclick="sortTable('name')" data-i18n="th-device"></th>
+                        <th class="col-cores" onclick="sortTable('cores')" data-i18n="th-cores"></th>
+                        <th class="col-tdp" onclick="sortTable('core-tdp')" data-i18n="th-tdp"></th>
+                        <th class="col-nm" onclick="sortTable('nm')" data-i18n="th-nm"></th>
+                        <th onclick="sortTable('ram')" data-i18n="th-ram"></th>
+                        <th onclick="sortTable('rom')" data-i18n="th-rom"></th>
+                        <th data-i18n="th-os"></th>
+                        <th class="col-power" onclick="sortTable('powerW')" data-i18n="th-power-orig"></th>
+                        <th class="col-power" data-i18n="th-power-new"></th>
+                        <th onclick="sortTable('antu')" data-i18n="th-antu"></th>
+                        <th onclick="sortTable('benchmark')" data-i18n="th-score"></th>
+                        <th onclick="sortTable('sysbench')" data-i18n="th-sysbench"></th>
+                        <th data-i18n="th-ebay"></th>
+                    </tr>
+                </thead>
+                <tbody id="table-body"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/devices.js"></script>
+</body>
+</html>

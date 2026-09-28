@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoberLab | Server Accessories</title>
+    <meta name="description" content="USB-C hubs, HDMI adapters and other accessories that make an old device a better home server.">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+      // Runs before the page paints: pick a theme (saved choice, else OS/browser
+      // preference) so there's no flash of the wrong theme on load.
+      (function () {
+        try {
+          var t = localStorage.getItem('boberlab-theme');
+          if (t !== 'dark' && t !== 'light') {
+            t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+          }
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) { /* default light stays */ }
+      })();
+    </script>
+    <script src="https://unpkg.com/i18next@23.7.11/i18next.min.js"></script>
+</head>
+<body data-page="accessories">
+    <div id="site-header"></div>
+
+    <main class="container">
+        <h1 class="page-title" data-i18n="acc-title"></h1>
+        <p class="lead" data-i18n="acc-intro"></p>
+        <p class="note" data-i18n="acc-note"></p>
+
+        <div class="chips" id="acc-chips"></div>
+        <div class="acc-grid" id="acc-grid"></div>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/accessories.js"></script>
+</body>
+</html>

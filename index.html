@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BoberLab | Home Lab Devices</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Turn old phones, mini PCs, tablets and TV boxes into low-power home servers. Tested devices, guides and server accessories.">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.png">
+    <link rel="stylesheet" href="css/style.css">
     <script>
       // Runs before the page paints: pick a theme (saved choice, else OS/browser
       // preference) so there's no flash of the wrong theme on load.
@@ -15,67 +17,63 @@
             t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
           }
           document.documentElement.setAttribute('data-theme', t);
-        } catch (e) { /* localStorage/matchMedia unavailable, default light stays */ }
+        } catch (e) { /* default light stays */ }
       })();
     </script>
     <script src="https://unpkg.com/i18next@23.7.11/i18next.min.js"></script>
 </head>
-<body>
+<body data-page="home">
+    <div id="site-header"></div>
 
-    <div class="header-box">
-        <div>
-            <div class="site-title" id="site-title"></div>
-            <h1 id="main-title">BoberLab</h1>
-        </div>
-        <div class="nav-controls">
-            <div class="lang-btns">
-                <button data-lang="en" onclick="changeLang('en')">EN</button>
-                <button data-lang="ru" onclick="changeLang('ru')">RU</button>
-                <button data-lang="pl" onclick="changeLang('pl')">PL</button>
+    <main class="container">
+        <section class="card hero">
+            <img class="hero-logo" src="assets/logo.png" alt="BoberLab beaver" width="140" height="140">
+            <div>
+                <h1 data-i18n="intro-title"></h1>
+                <p data-i18n="intro-text"></p>
+                <div class="hero-actions">
+                    <a class="btn primary" href="devices.html" data-i18n="cta-devices"></a>
+                    <a class="btn" href="accessories.html" data-i18n="cta-accessories"></a>
+                </div>
             </div>
-            <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()"></button>
+        </section>
+
+        <div class="home-layout">
+            <section class="home-main">
+                <h2 data-i18n="home-categories"></h2>
+                <div class="cat-grid" id="cat-grid"></div>
+
+                <h2 data-i18n="home-all-devices"></h2>
+                <div class="table-wrap">
+                    <table class="mini-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="th-device"></th>
+                                <th data-i18n="th-cores"></th>
+                                <th data-i18n="th-ram"></th>
+                                <th data-i18n="th-rom"></th>
+                                <th data-i18n="th-power-new"></th>
+                                <th data-i18n="th-sysbench"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="home-table-body"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <aside class="sidebar">
+                <section class="card rank-card"><h3 data-i18n="rank-popular"></h3><ol class="rank-list" id="rank-popular"></ol></section>
+                <section class="card rank-card"><h3 data-i18n="rank-powerful"></h3><ol class="rank-list" id="rank-powerful"></ol></section>
+                <section class="card rank-card"><h3 data-i18n="rank-stable"></h3><ol class="rank-list" id="rank-stable"></ol></section>
+                <section class="card rank-card"><h3 data-i18n="rank-controllable"></h3><ol class="rank-list" id="rank-controllable"></ol></section>
+            </aside>
         </div>
-    </div>
+    </main>
 
-    <div class="intro">
-        <h2 id="intro-title"></h2>
-        <p id="intro-text"></p>
-    </div>
+    <div id="site-footer"></div>
 
-    <div class="controls">
-        <span class="filters-label" id="filters-label"></span>
-        <div class="filters" id="filters"></div>
-    </div>
-
-    <div class="table-wrap">
-        <table>
-            <thead>
-                <tr>
-                    <th onclick="sortTable('name')" id="th-device"></th>
-                    <th class="col-cores" onclick="sortTable('cores')" id="th-cores"></th>
-                    <th class="col-tdp" onclick="sortTable('core-tdp')" id="th-tdp"></th>
-                    <th class="col-nm" onclick="sortTable('nm')" id="th-nm"></th>
-                    <th onclick="sortTable('ram')" id="th-ram"></th>
-                    <th onclick="sortTable('rom')" id="th-rom"></th>
-                    <th id="th-os"></th>
-                    <th class="col-power" onclick="sortTable('powerW')" id="th-power-orig"></th>
-                    <th class="col-power" id="th-power-new"></th>
-                    <th onclick="sortTable('antu')" id="th-antu"></th>
-                    <th onclick="sortTable('benchmark')" id="th-score"></th>
-                    <th onclick="sortTable('sysbench')" id="th-sysbench"></th>
-                    <th id="th-ebay"></th>
-                </tr>
-            </thead>
-            <tbody id="table-body"></tbody>
-        </table>
-    </div>
-
-    <footer class="site-footer">
-        <p id="footer-project"></p>
-        <p id="footer-disclaimer"></p>
-    </footer>
-
-    <script src="i18n.js"></script>
-    <script src="app.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/home.js"></script>
 </body>
 </html>

@@ -6,18 +6,36 @@ let currentSort = { column: 'benchmark', direction: 'desc' };
 initI18n(() => {
     loadDevices();
 });
-document.addEventListener('langchange', updateStaticUI);
+document.addEventListener('langchange', () => {
+    updateHeading();
+    updateFilterLabels();
+});
 
 async function loadDevices() {
-    const response = await fetch('devices.json');
+    const response = await fetch('data/devices.json');
     devicesData = await response.json();
-    // Build the type-filter list dynamically from whatever types are present
-    // in devices.json, so adding e.g. "laptop" devices later needs no HTML edits.
+
+    // Filter list is built from whatever types exist in devices.json, so
+    // adding e.g. "laptop" devices later needs no HTML edits.
     allTypes = [...new Set(devicesData.map(d => d.type))];
-    activeFilters = [...allTypes];
+
+    // ?type=minipc (from the menu / breadcrumbs) pre-selects one category.
+    const requested = new URLSearchParams(window.location.search).get('type');
+    activeFilters = allTypes.includes(requested) ? [requested] : [...allTypes];
+
     buildFilters();
-    updateStaticUI();
+    updateHeading();
+    updateFilterLabels();
+    makeHeadersKeyboardAccessible();
     renderTable();
+}
+
+function updateHeading() {
+    const requested = new URLSearchParams(window.location.search).get('type');
+    const h1 = document.getElementById('page-heading');
+    h1.textContent = allTypes.includes(requested)
+        ? i18next.t('cat-' + requested, requested)
+        : i18next.t('devices-title');
 }
 
 function buildFilters() {
@@ -27,7 +45,7 @@ function buildFilters() {
         const label = document.createElement('label');
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
-        checkbox.checked = true;
+        checkbox.checked = activeFilters.includes(type);
         checkbox.onchange = () => toggleFilter(type);
         const span = document.createElement('span');
         span.dataset.typeLabel = type;
@@ -35,6 +53,26 @@ function buildFilters() {
         label.appendChild(document.createTextNode(' '));
         label.appendChild(span);
         wrap.appendChild(label);
+    });
+}
+
+function updateFilterLabels() {
+    document.querySelectorAll('#filters span[data-type-label]').forEach(span => {
+        span.textContent = i18next.t('cat-' + span.dataset.typeLabel, span.dataset.typeLabel);
+    });
+}
+
+// Sortable headers use onclick in the HTML; make them reachable by keyboard too.
+function makeHeadersKeyboardAccessible() {
+    document.querySelectorAll('th[onclick]').forEach(th => {
+        th.tabIndex = 0;
+        th.setAttribute('role', 'button');
+        th.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                th.click();
+            }
+        });
     });
 }
 
@@ -102,30 +140,4 @@ function toggleFilter(type) {
         activeFilters.push(type);
     }
     renderTable();
-}
-
-function updateStaticUI() {
-    document.getElementById('site-title').innerText = i18next.t('site-title');
-    document.getElementById('main-title').innerText = i18next.t('nav-all');
-    document.getElementById('intro-title').innerText = i18next.t('intro-title');
-    document.getElementById('intro-text').innerText = i18next.t('intro-text');
-    document.getElementById('filters-label').innerText = i18next.t('filters-label');
-    document.getElementById('th-device').innerText = i18next.t('th-device');
-    document.getElementById('th-cores').innerText = i18next.t('th-cores');
-    document.getElementById('th-tdp').innerText = i18next.t('th-tdp');
-    document.getElementById('th-nm').innerText = i18next.t('th-nm');
-    document.getElementById('th-ram').innerText = i18next.t('th-ram');
-    document.getElementById('th-rom').innerText = i18next.t('th-rom');
-    document.getElementById('th-os').innerText = i18next.t('th-os');
-    document.getElementById('th-power-orig').innerText = i18next.t('th-power-orig');
-    document.getElementById('th-power-new').innerText = i18next.t('th-power-new');
-    document.getElementById('th-antu').innerText = i18next.t('th-antu');
-    document.getElementById('th-score').innerText = i18next.t('th-score');
-    document.getElementById('th-sysbench').innerText = i18next.t('th-sysbench');
-    document.getElementById('th-ebay').innerText = i18next.t('th-ebay');
-    document.getElementById('footer-project').innerText = i18next.t('footer-project');
-    document.getElementById('footer-disclaimer').innerText = i18next.t('footer-disclaimer');
-    document.querySelectorAll('#filters span[data-type-label]').forEach(span => {
-        span.innerText = typeLabel(span.dataset.typeLabel);
-    });
 }
